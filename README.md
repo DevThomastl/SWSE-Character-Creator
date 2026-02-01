@@ -7,20 +7,20 @@ Saga Edition Character Creator’s primary objective is to streamline the proces
 
 ### Functional Requirements:
 Functional Requirements:
-Saga Edition Character Creator is designed to follow Star Wars Saga Edition’s ruleset. The user will be able to create, save, edit, and delete characters. When creating a character, they will select their:
-•	Species
-•	Heroic Class
-•	Skills
-•	Feats
-•	Talents
-•	Ability Scores (strength, dexterity, constitution, intelligence, wisdom, charisma)
-Those are among the first things a user would select; however, there is more. Characters are comprised of statistics as well, which are:
-•	Hit Points (calculated by constitution score and heroic class)
-•	Fortitude Defense (calculated by constitution score, heroic class, feats)
-•	Reflex Defense (calculated by dexterity score, heroic class, feats)
-•	Will Defense (calculated by wisdom score, heroic class, feats)
-•	Base Attack Bonus (calculated by ability scores and heroic class)
-•	Skill Modifiers (calculated by ability scores, feats, and talents)
+Saga Edition Character Creator is designed to follow Star Wars Saga Edition’s ruleset. The user will be able to create, save, edit, and delete characters. When creating a character, they will select their:\
+•	Species\
+•	Heroic Class\
+•	Skills\
+•	Feats\
+•	Talents\
+•	Ability Scores (strength, dexterity, constitution, intelligence, wisdom, charisma)\
+Those are among the first things a user would select; however, there is more. Characters are comprised of statistics as well, which are:\
+•	Hit Points (calculated by constitution score and heroic class)\
+•	Fortitude Defense (calculated by constitution score, heroic class, feats)\
+•	Reflex Defense (calculated by dexterity score, heroic class, feats)\
+•	Will Defense (calculated by wisdom score, heroic class, feats)\
+•	Base Attack Bonus (calculated by ability scores and heroic class)\
+•	Skill Modifiers (calculated by ability scores, feats, and talents)\
 All of these will automatically be calculated, as the application will factor in all relevant information associated with said statistics. 
 As it pertains to the ruleset, the system will ensure correct character assembly. For example, a user selects Jedi as their character’s heroic class. Jedi do not get access to the Deception skill; therefore, the user will not be able to choose Deception as one of that character’s skills.
 Each character will be able to be viewed at the user’s leisure in an easily readable digital format.\
