@@ -51,23 +51,23 @@ So that I do not mistakenly create something that is unplayable.
 
 ## Use-Cases
 ### Use-Case #1: Create a Character
-**Actor**: User
+**Actor**: User\
 **Description:** The user creates a new character by selecting the character's species, ability scores, class, feats, skills, and talents. The application will validate the character by ensuring it adheres to the ruleset, and calculates various statistics.
 ---
 ### Use-Case #2: Edit a Character
-**Actor**: User
+**Actor**: User\
 **Description:** The user edits an existing character by changing skills, feats, talents, or ability scores. The application ensures any changes adhere to the ruleset.
 ---
 ### Use-Case #3: Save a Character
-**Actor**: User
+**Actor**: User\
 **Description:** The user saves a character locally. The system validates the character data and makes the data persistent in the event of future retrieval.
 ---
 ### Use-Case #4: Load a Character
-**Actor**: User
+**Actor**: User\
 **Description:** The user loads an existing character from the local database.
 ---
 ### Use-Case #5: View a Character
-**Actor**: User
+**Actor**: User\
 **Description:** The user views the digital character sheet of an existing character. All statistics and information are displayed.
 ---
 
