@@ -43,8 +43,7 @@ Saga Edition Character Creator adheres to the ruleset determined in the Star War
 13.	Galaxy of Intrigue
 14.	The Unknown Regions
 15.	Dawn of Defiance
-In addition to the sourcebooks and standalone adventure, there are “web enhancements.” These are official online supplements. There are too many to list in a Word document; however, those that are used will be mentioned as a source.
-Finally, the last source of information that the project will use is https://swse.fandom.com/wiki/Star_Wars_Saga_Edition_Wikia. This is a wiki for all things Star Wars Saga Edition, and is a tremendous source, as it holds a massive amount of information, while being efficient for research.\
+16. https://swse.fandom.com/wiki/Star_Wars_Saga_Edition_Wikia \
 
 ## Description of Application
 An application for creating characters in Star Wars Saga Edition.
