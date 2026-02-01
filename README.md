@@ -1,16 +1,62 @@
 # SWSE-Character-Creator
 
+##
+**Project Description**
+### Purpose of the Application:
+Saga Edition Character Creator’s primary objective is to streamline the process of creating a character. Star Wars Saga Edition, like most tabletop roleplaying games, relies on a variety of books to provide rules, playable species, skills, feats, talents, heroic classes, prestige classes, equipment, Force powers, Force secrets, lightsaber forms, and languages. Developing a digital method to create one’s character eliminates the physical requirement of pencil and paper, reduces time spent searching through each book, and displays all relevant information to the user. In addition, players will never have to worry about losing their character sheets, since they will all be saved. This application will save hours of time for those creating characters.\
+
+### Functional Requirements:
+Functional Requirements:
+Saga Edition Character Creator is designed to follow Star Wars Saga Edition’s ruleset. The user will be able to create, save, edit, and delete characters. When creating a character, they will select their:
+•	Species
+•	Heroic Class
+•	Skills
+•	Feats
+•	Talents
+•	Ability Scores (strength, dexterity, constitution, intelligence, wisdom, charisma)
+Those are among the first things a user would select; however, there is more. Characters are comprised of statistics as well, which are:
+•	Hit Points (calculated by constitution score and heroic class)
+•	Fortitude Defense (calculated by constitution score, heroic class, feats)
+•	Reflex Defense (calculated by dexterity score, heroic class, feats)
+•	Will Defense (calculated by wisdom score, heroic class, feats)
+•	Base Attack Bonus (calculated by ability scores and heroic class)
+•	Skill Modifiers (calculated by ability scores, feats, and talents)
+All of these will automatically be calculated, as the application will factor in all relevant information associated with said statistics. 
+As it pertains to the ruleset, the system will ensure correct character assembly. For example, a user selects Jedi as their character’s heroic class. Jedi do not get access to the Deception skill; therefore, the user will not be able to choose Deception as one of that character’s skills.
+Each character will be able to be viewed at the user’s leisure in an easily readable digital format.\
+
+### Sources:
+Relevant Literature and Sources:
+Saga Edition Character Creator adheres to the ruleset determined in the Star Wars Saga Edition tabletop role-playing game. Star Wars Saga Edition has fourteen official sourcebooks and one campaign, all of which will be used as sources. These sources are:
+1.	Saga Edition Core Rulebook
+2.	Starships of the Galaxy
+3.	Threats of the Galaxy
+4.	Knights of the Old Republic Campaign Guide
+5.	Force Unleashed Campaign Guide
+6.	Scum and Villainy
+7.	Clone Wars Campaign Guide
+8.	Legacy Era Campaign Guide
+9.	Jedi Academy Training Manual
+10.	Rebellion Era Campaign Guide
+11.	Galaxy at War
+12.	Scavenger’s Guide to Droids
+13.	Galaxy of Intrigue
+14.	The Unknown Regions
+15.	Dawn of Defiance
+In addition to the sourcebooks and standalone adventure, there are “web enhancements.” These are official online supplements. There are too many to list in a Word document; however, those that are used will be mentioned as a source.
+Finally, the last source of information that the project will use is https://swse.fandom.com/wiki/Star_Wars_Saga_Edition_Wikia. This is a wiki for all things Star Wars Saga Edition, and is a tremendous source, as it holds a massive amount of information, while being efficient for research.\
+
 ## Description of Application
 An application for creating characters in Star Wars Saga Edition.
 HTML, CSS, SQL-SERVER, ASP.NET, C#, MVC,
-TTRPG
+TTRPG\
 
 ## Wireframe Sketches
-![Wireframe Sketch](Wireframe%20Design.png)
+![Wireframe Sketch](Wireframe%20Design.png)  
 
 
 ## Solution Architecture Diagram
-![Solution Architecture Diagram](SolutionArchitectureDiagram.png)
+![Solution Architecture Diagram](SolutionArchitectureDiagram.png)  
 
 
 ## User Stories
@@ -47,7 +93,7 @@ So that I do not have to perform manual calculations.
 ### User Story 7: Prevent Illegal Characters
 As a player,
 I want to prevent illegal characters,
-So that I do not mistakenly create something that is unplayable.
+So that I do not mistakenly create something that is unplayable.  
 
 ## Use-Cases
 ### Use-Case 1: Create a Character
@@ -69,7 +115,7 @@ Description: The user loads an existing character from the local database.
 ### Use-Case 5: View a Character
 Actor: User\
 Description: The user views the digital character sheet of an existing character. All statistics and information are displayed.
----
+---  
 
 ## (UML) Use-Case Diagram
 ![Use Case Diagram](UseCaseDiagram.png)
