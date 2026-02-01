@@ -43,7 +43,7 @@ Saga Edition Character Creator adheres to the ruleset determined in the Star War
 13.	Galaxy of Intrigue
 14.	The Unknown Regions
 15.	Dawn of Defiance
-16. https://swse.fandom.com/wiki/Star_Wars_Saga_Edition_Wikia \
+16. https://swse.fandom.com/wiki/Star_Wars_Saga_Edition_Wikia  
 
 ## Description of Application
 An application for creating characters in Star Wars Saga Edition.
