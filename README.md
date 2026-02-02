@@ -23,7 +23,7 @@ Those are among the first things a user would select; however, there is more. Ch
 •	Skill Modifiers (calculated by ability scores, feats, and talents)\
 All of these will automatically be calculated, as the application will factor in all relevant information associated with said statistics. 
 As it pertains to the ruleset, the system will ensure correct character assembly. For example, a user selects Jedi as their character’s heroic class. Jedi do not get access to the Deception skill; therefore, the user will not be able to choose Deception as one of that character’s skills.
-Each character will be able to be viewed at the user’s leisure in an easily readable digital format.\
+Each character will be able to be viewed at the user’s leisure in an easily readable digital format.
 
 ### Sources:
 Relevant Literature and Sources:
