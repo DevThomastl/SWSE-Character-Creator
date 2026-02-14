@@ -118,3 +118,13 @@ Description: The user views the digital character sheet of an existing character
 
 ## (UML) Use-Case Diagram
 ![Use Case Diagram](UseCaseDiagram.png)
+
+
+## Software Requirements Table
+| ID | Requirement |
+|---------|----------|
+| 01 | The system shall provide functionality to create a character. This functionality shall contain the ability to select class, species, feats, skills, talents, and ability scores. | 
+| 02 | The system shall provide functionality to delete a character. This functionality shall permanently delete all of the selected character's data. | 
+| 03 | The system shall provide functionality to edit an existing character. This functionality shall permit the ability to edit character feats, skills, talents, and ability scores. | 
+| 04 | The system shall validate characters to ensure compliance with the ruleset. This functionality shall prevent the creation of an illegal character, which includes preventing access to feats, skills, and talents that the character is unable to obtain. | 
+| 05 | The system shall automatically calculate statistics for characters based on its data. The values that shall automatically be calculated are hit points, defenses, skill modifiers, and ability modifiers.  | 
