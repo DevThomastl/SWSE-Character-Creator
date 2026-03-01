@@ -1,11 +1,24 @@
 # SWSE-Character-Creator
 
-##
-**Project Description**
+## Table of Contents
+- [Purpose of the Application](#purpose-of-the-application)
+- [Functional Requirements](#functional-requirements)
+- [Sources](#sources)
+- [Description of Application](#description-of-application)
+- [Wireframe Sketches](#wireframe-sketches)
+- [Solution Architecture Diagram](#solution-architecture-diagram)
+- [User Stories](#user-stories)
+- [Use-Cases](#use-cases)
+- [UML Use-Case Diagram](#uml-use-case-diagram)
+- [Software Requirements Table](#software-requirements-table)
+- [Entity Relationship Diagram](#entity-relationship-diagram)
+- [UML Class Diagram](#uml-class-diagram)
+
+## **Project Description**
 ### Purpose of the Application:
 Saga Edition Character Creator’s primary objective is to streamline the process of creating a character. Star Wars Saga Edition, like most tabletop roleplaying games, relies on a variety of books to provide rules, playable species, skills, feats, talents, heroic classes, prestige classes, equipment, Force powers, Force secrets, lightsaber forms, and languages. Developing a digital method to create one’s character eliminates the physical requirement of pencil and paper, reduces time spent searching through each book, and displays all relevant information to the user. In addition, players will never have to worry about losing their character sheets, since they will all be saved. This application will save hours of time for those creating characters.\
 
-### Functional Requirements:
+## Functional Requirements:
 Functional Requirements:
 Saga Edition Character Creator is designed to follow Star Wars Saga Edition’s ruleset. The user will be able to create, save, edit, and delete characters. When creating a character, they will select their:\
 •	Species\
@@ -25,7 +38,7 @@ All of these will automatically be calculated, as the application will factor in
 As it pertains to the ruleset, the system will ensure correct character assembly. For example, a user selects Jedi as their character’s heroic class. Jedi do not get access to the Deception skill; therefore, the user will not be able to choose Deception as one of that character’s skills.
 Each character will be able to be viewed at the user’s leisure in an easily readable digital format.
 
-### Sources:
+## Sources:
 Relevant Literature and Sources:
 Saga Edition Character Creator adheres to the ruleset determined in the Star Wars Saga Edition tabletop role-playing game. Star Wars Saga Edition has fourteen official sourcebooks and one campaign, all of which will be used as sources. These sources are:
 1.	Saga Edition Core Rulebook
@@ -128,3 +141,16 @@ Description: The user views the digital character sheet of an existing character
 | 03 | The system shall provide functionality to edit an existing character. This functionality shall permit the ability to edit character feats, skills, talents, and ability scores. | 
 | 04 | The system shall validate characters to ensure compliance with the ruleset. This functionality shall prevent the creation of an illegal character, which includes preventing access to feats, skills, and talents that the character is unable to obtain. | 
 | 05 | The system shall automatically calculate statistics for characters based on its data. The values that shall automatically be calculated are hit points, defenses, skill modifiers, and ability modifiers.  | 
+
+## Entity Relationship Diagram
+![ER Diagram](ERD.png)
+
+## UML Class Diagram
+![UML Class Diagram](UMLDiagram.png)
+
+
+
+
+
+
+
