@@ -15,3 +15,6 @@ The user may enter the character’s equipment. If eligible, the user may also s
 All characters created in the prototype are **Level 1 characters**.
 
 The Character Creation Page also includes controls for managing characters. Buttons located in the top-right area of the character sheet allow the user to save the current character, delete the current character, or load another saved character.
+
+## Prototype
+![Wireframe Sketch](Wireframe%20Design.png)
