@@ -135,22 +135,67 @@ Description: The user views the digital character sheet of an existing character
 
 ## Software Requirements Table
 | ID | Requirement |
-|---------|----------|
-| 01 | The system shall provide functionality to create a character. This functionality shall contain the ability to select class, species, feats, skills, talents, and ability scores. | 
-| 02 | The system shall provide functionality to delete a character. This functionality shall permanently delete all of the selected character's data. | 
-| 03 | The system shall provide functionality to edit an existing character. This functionality shall permit the ability to edit character feats, skills, talents, and ability scores. | 
-| 04 | The system shall validate characters to ensure compliance with the ruleset. This functionality shall prevent the creation of an illegal character, which includes preventing access to feats, skills, and talents that the character is unable to obtain. | 
-| 05 | The system shall automatically calculate statistics for characters based on its data. The values that shall automatically be calculated are hit points, defenses, skill modifiers, and ability modifiers.  | 
+|----|-------------|
+| 1 | Provide the ability to create a new character |
+| 1.1 | The system shall provide an interface for character creation |
+| 1.1.1 | The system shall allow the user to enter a character name |
+| 1.1.2 | The system shall allow the user to select a species |
+| 1.1.3 | The system shall allow the user to select a heroic class |
+| 1.1.4 | The system shall allow the user to enter ability scores |
+| 1.1.5 | The system shall allow the user to view the selected character attributes before saving |
+| 1.2 | The system shall store the entered character data in memory until the user chooses to save |
+
+| 2 | Provide the ability to save a character |
+| 2.1 | The system shall allow the user to save a created or edited character |
+| 2.1.1 | The system shall store character data in persistent storage |
+| 2.1.2 | The system shall assign a unique identifier to each saved character |
+| 2.1.3 | The system shall store all character attributes including species, class, ability scores, feats, talents, skills, and any other selected data |
+
+| 3 | Provide the ability to load an existing character |
+| 3.1 | The system shall display a list of saved characters |
+| 3.1.1 | The system shall display the name of each saved character |
+| 3.1.2 | The system shall allow the user to select a character from the list |
+| 3.1.3 | The system shall load the selected character’s data |
+| 3.1.4 | The system shall display the loaded character’s information for viewing or editing |
+
+| 4 | Provide the ability to delete a character |
+| 4.1 | The system shall allow the user to select a saved character for deletion |
+| 4.1.1 | The system shall provide a delete option for each saved character |
+| 4.1.2 | The system shall remove the selected character from persistent storage |
+| 4.1.3 | The system shall update the displayed list of saved characters after deletion |
+| 4.1.4 | The system shall optionally confirm the deletion before removing the character |
+
+| 5 | Provide the ability to edit a character |
+| 5.1 | The system shall allow the user to modify an existing character |
+| 5.1.1 | The system shall allow the user to modify character attributes such as ability scores, talents, skills, or feats |
+| 5.1.2 | The system shall allow the user to save the updated character |
+| 5.1.3 | The system shall update the stored character data after edits are saved |
+
+| 6 | Provide automatic calculation of character statistics |
+| 6.1 | The system shall automatically calculate character statistics |
+| 6.1.1 | The system shall calculate statistics based on ability scores and other character attributes |
+| 6.1.2 | The system shall automatically update calculated values when character attributes change |
+| 6.1.3 | The system shall display calculated statistics to the user |
+| 6.1.4 | The system shall prevent user modification of automatically calculated statistics |
+
+| 7 | Prevent creation of illegal characters |
+| 7.1 | The system shall validate character selections according to the Star Wars Saga Edition ruleset |
+| 7.1.1 | The system shall enforce valid ability score values |
+| 7.1.2 | The system shall validate character class selection according to implemented game rules |
+| 7.1.3 | The system shall ensure that all required character fields are completed before saving |
+| 7.1.4 | The system shall display an error message when an invalid selection is made |
+| 7.1.5 | The system shall prevent saving a character that violates the game ruleset |
+| 7.1.6 | The system shall validate feat prerequisites based on character level, ability scores, class features, and previously selected feats |
+| 7.1.7 | The system shall prevent selection of feats for which the character does not meet all prerequisites |
+| 7.1.8 | The system shall validate talent prerequisites based on class, level, and previously selected talents or features |
+| 7.1.9 | The system shall prevent selection of talents for which the character does not meet all prerequisites |
+| 7.1.10 | The system shall validate skill availability based on the selected heroic class |
+| 7.1.11 | The system shall prevent assignment of trained skills that are not available to the selected heroic class |
+| 7.1.12 | The system shall revalidate all dependent character options whenever a relevant character attribute or selection is modified |
+| 7.1.13 | The system shall notify the user when a change causes an existing feat, talent, or skill selection to become invalid |
 
 ## Entity Relationship Diagram
 ![ER Diagram](ERD.png)
 
 ## UML Class Diagram
 ![UML Class Diagram](UMLDiagram.png)
-
-
-
-
-
-
-
