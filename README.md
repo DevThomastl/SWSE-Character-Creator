@@ -64,7 +64,7 @@ HTML, CSS, SQL-SERVER, ASP.NET, C#, MVC,
 TTRPG\
 
 ## Wireframe Sketches
-![Wireframe Sketch](Wireframe%20Design.png)  
+![Wireframe Sketch](WireframeDesign.png)  
 
 
 ## Solution Architecture Diagram
