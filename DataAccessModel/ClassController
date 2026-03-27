@@ -1,0 +1,17 @@
+[ApiController]
+[Route("[controller]")]
+public class FeatController : ControllerBase
+{
+    private readonly ILogger<FeatController> _logger;
+
+    public FeatController(ILogger<FeatController> logger)
+    {
+        _logger = logger;
+    }
+
+    [HttpGet(Name = "GetFeats")]
+    public IEnumerable<Feat> Get()
+    {
+        return Feat.GetFeats();
+    }
+}
