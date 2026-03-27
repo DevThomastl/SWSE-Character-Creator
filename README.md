@@ -13,6 +13,7 @@
 - [Software Requirements Table](#software-requirements-table)
 - [Entity Relationship Diagram](#entity-relationship-diagram)
 - [UML Class Diagram](#uml-class-diagram)
+- [Data Access Layer](#data-access-layer)
 
 ## **Project Description**
 ### Purpose of the Application:
@@ -193,3 +194,5 @@ Description: The user views the digital character sheet of an existing character
 
 ## UML Class Diagram
 ![UML Class Diagram](UMLDiagram.png)
+
+## Data Access Layer
