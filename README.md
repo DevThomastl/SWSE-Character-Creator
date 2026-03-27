@@ -196,6 +196,9 @@ Description: The user views the digital character sheet of an existing character
 ![UML Class Diagram](UMLDiagram.png)
 
 ## Data Access Layer
+### Feats List
 ![Feats List](DAL_Feats.png)
+### Feats Controller
 ![Feats Controller](DAL_Feats.png)
+### JSON
 ![JSON](DAL_JSON.png)
