@@ -1,0 +1,53 @@
+public class Feat
+{
+    public int Id { get; set; }
+
+    [Required]
+    [MaxLength(200)]
+    public string Name { get; set; } = string.Empty;
+
+    
+    [MaxLength(500)]
+    public string? Prerequisite { get; set; }
+
+    [Required]
+    [MaxLength(2000)]
+    public string Description { get; set; } = string.Empty;
+
+    
+    public Feat(int id, string name, string? prerequisite, string description)
+    {
+        Id = id;
+        Name = name;
+        Prerequisite = prerequisite;
+        Description = description;
+    }
+
+    
+    public static List<Feat> GetFeats() => new List<Feat>
+    {
+        new Feat(1, "Force Training", "Trained in Use the Force",
+            "You gain access to Force powers and may select Force powers."),
+
+        new Feat(2, "Weapon Proficiency (Pistols)", null,
+            "You are proficient with pistols."),
+
+        new Feat(3, "Weapon Proficiency (Rifles)", null,
+            "You are proficient with rifles."),
+
+        new Feat(4, "Weapon Proficiency (Simple Weapons)", null,
+            "You are proficient with all simple weapons."),
+
+        new Feat(5, "Point-Blank Shot", null,
+            "You gain a +1 bonus on attack and damage rolls with ranged weapons at short range."),
+
+        new Feat(6, "Armor Proficiency (Light)", null,
+            "You are proficient with light armor."),
+
+        new Feat(7, "Armor Proficiency (Medium)", "Armor Proficiency (Light)",
+            "You are proficient with medium armor."),
+
+        new Feat(8, "Linguist", null,
+            "You gain additional languages and may select new ones."),
+    };
+}
