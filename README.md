@@ -199,6 +199,6 @@ Description: The user views the digital character sheet of an existing character
 ### Feats List
 ![Feats List](DAL_Feats.png)
 ### Feats Controller
-![Feats Controller](DAL_Feats.png)
+![Feats Controller](DAL_Feats_Controller.png)
 ### JSON
 ![JSON](DAL_JSON.png)
