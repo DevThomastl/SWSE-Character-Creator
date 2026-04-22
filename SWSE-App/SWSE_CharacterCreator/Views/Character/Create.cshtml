@@ -1,0 +1,2279 @@
+﻿@{
+    ViewData["Title"] = "Character Creation";
+
+    // Get the character ID if one was passed in
+    var characterId = ViewBag.CharacterId as int?;
+}
+
+<div class="cc-page">
+    <div class="cc-title-wrap">
+        <div class="cc-title-pill">Character Creation Page</div>
+    </div>
+
+    <!-- Hidden field to hold the current character ID -->
+    <input type="hidden" id="characterId" value="@characterId" />
+
+    <div class="cc-board">
+        <!-- Top controls for name, species, class, level, and main buttons -->
+        <div class="cc-topbar">
+            <input id="characterName" class="cc-control" placeholder="Character Name" />
+            <select id="speciesId" class="cc-control"></select>
+            <select id="heroicClassName" class="cc-control"></select>
+            <input id="level" class="cc-readonly" type="number" value="1" readonly />
+
+            <button id="saveCharacterBtn" type="button" class="cc-btn">Save Character</button>
+            <button type="button" class="cc-btn" onclick="location.href='/'">Load Character</button>
+            <button type="button" id="deleteCharacterBtn" class="cc-btn">Delete</button>
+        </div>
+
+        <!-- Debug message area -->
+        <div class="cc-debug">
+            <div id="debugMessage" style="display:none; color:red; font-size:12px;"></div>
+        </div>
+
+        <div class="cc-grid">
+            <div class="cc-left">
+                <!-- Ability score section -->
+                <div class="cc-box">
+                    <div class="cc-section-title">Abilities</div>
+
+                    <div class="cc-abilities-grid">
+                        <div class="cc-ability-spacer"></div>
+                        <div class="cc-ability-header">Base</div>
+                        <div class="cc-ability-header">Final</div>
+                        <div class="cc-ability-header">Mod</div>
+
+                        <div class="cc-ability-label">Strength</div>
+                        <input id="strength" type="number" class="cc-control cc-ability-input" />
+                        <input id="strengthFinal" type="text" readonly class="cc-readonly cc-ability-input" />
+                        <input id="strengthMod" type="text" readonly class="cc-readonly cc-ability-input" />
+
+                        <div class="cc-ability-label">Dexterity</div>
+                        <input id="dexterity" type="number" class="cc-control cc-ability-input" />
+                        <input id="dexterityFinal" type="text" readonly class="cc-readonly cc-ability-input" />
+                        <input id="dexterityMod" type="text" readonly class="cc-readonly cc-ability-input" />
+
+                        <div class="cc-ability-label">Constitution</div>
+                        <input id="constitution" type="number" class="cc-control cc-ability-input" />
+                        <input id="constitutionFinal" type="text" readonly class="cc-readonly cc-ability-input" />
+                        <input id="constitutionMod" type="text" readonly class="cc-readonly cc-ability-input" />
+
+                        <div class="cc-ability-label">Intelligence</div>
+                        <input id="intelligence" type="number" class="cc-control cc-ability-input" />
+                        <input id="intelligenceFinal" type="text" readonly class="cc-readonly cc-ability-input" />
+                        <input id="intelligenceMod" type="text" readonly class="cc-readonly cc-ability-input" />
+
+                        <div class="cc-ability-label">Wisdom</div>
+                        <input id="wisdom" type="number" class="cc-control cc-ability-input" />
+                        <input id="wisdomFinal" type="text" readonly class="cc-readonly cc-ability-input" />
+                        <input id="wisdomMod" type="text" readonly class="cc-readonly cc-ability-input" />
+
+                        <div class="cc-ability-label">Charisma</div>
+                        <input id="charisma" type="number" class="cc-control cc-ability-input" />
+                        <input id="charismaFinal" type="text" readonly class="cc-readonly cc-ability-input" />
+                        <input id="charismaMod" type="text" readonly class="cc-readonly cc-ability-input" />
+                    </div>
+                </div>
+
+                <!-- Languages section -->
+                <div class="cc-box cc-panel-short">
+                    <div class="cc-box-heading">Languages the Character Speaks</div>
+                    <div id="languagesContainer" class="cc-language-list"></div>
+                </div>
+
+                <!-- Equipment notes -->
+                <div class="cc-box cc-panel-equipment">
+                    <div class="cc-box-heading">Equipment</div>
+                    <textarea id="equipment" class="cc-equipment-text"></textarea>
+                </div>
+
+                <!-- Species traits -->
+                <div class="cc-box cc-panel-short">
+                    <div class="cc-box-heading">Species Traits</div>
+                    <div id="traitsContainer" class="cc-traits-list"></div>
+                </div>
+            </div>
+
+            <div class="cc-center">
+                <!-- Main derived stats -->
+                <div class="cc-stat-row">
+                    <div class="cc-stat-pair">
+                        <div class="cc-stat-label">Hit Points</div>
+                        <input id="hitPoints" readonly class="cc-readonly" />
+                    </div>
+                    <div class="cc-stat-pair">
+                        <div class="cc-stat-label">Speed</div>
+                        <input id="speed" readonly class="cc-readonly" />
+                    </div>
+                    <div class="cc-stat-pair">
+                        <div class="cc-stat-label">Force Points</div>
+                        <input id="forcePoints" readonly class="cc-readonly" />
+                    </div>
+
+                    <div class="cc-stat-pair">
+                        <div class="cc-stat-label">Damage Threshold</div>
+                        <input id="damageThreshold" readonly class="cc-readonly" />
+                    </div>
+                    <div class="cc-stat-pair">
+                        <div class="cc-stat-label">Destiny Points</div>
+                        <input id="destinyPoints" readonly class="cc-readonly" />
+                    </div>
+                    <div class="cc-stat-pair">
+                        <div class="cc-stat-label">Base Attack Bonus</div>
+                        <input id="baseAttackBonus" readonly class="cc-readonly" />
+                    </div>
+                </div>
+
+                <!-- Defenses -->
+                <div class="cc-defense-stack">
+                    <div class="cc-defense-item">
+                        <div class="cc-defense-name">Reflex Defense</div>
+                        <input id="reflexDefense" readonly class="cc-readonly cc-defense-value" />
+                    </div>
+                    <div class="cc-defense-item">
+                        <div class="cc-defense-name">Fortitude Defense</div>
+                        <input id="fortitudeDefense" readonly class="cc-readonly cc-defense-value" />
+                    </div>
+                    <div class="cc-defense-item">
+                        <div class="cc-defense-name">Will Defense</div>
+                        <input id="willDefense" readonly class="cc-readonly cc-defense-value" />
+                    </div>
+                </div>
+
+                <!-- Attack summary -->
+                <div class="cc-box cc-box-tight cc-attack-wrap">
+                    <div class="cc-attack-label">Attack Option</div>
+                    <input id="attackOption" readonly class="cc-readonly" />
+                </div>
+
+                <div class="cc-center-bottom">
+                    <!-- Feats -->
+                    <div class="cc-box cc-panel-medium">
+                        <div class="cc-box-heading" id="featsHeading">Feats the Character Has</div>
+                        <input id="featSearch" class="cc-search" placeholder="Search feats..." />
+                        <div id="featCount" class="cc-count"></div>
+                        <div id="speciesChoiceFeatsContainer"></div>
+
+                        <div class="cc-subheading">Selected</div>
+                        <div id="selectedFeatsContainer" class="cc-selected"></div>
+
+                        <div class="cc-subheading">Available</div>
+                        <div id="availableFeatsContainer" class="cc-scroll cc-scroll-features"></div>
+                    </div>
+
+                    <!-- Talents -->
+                    <div class="cc-box cc-panel-medium">
+                        <div class="cc-box-heading" id="talentsHeading">Talents the Character Has</div>
+                        <input id="talentSearch" class="cc-search" placeholder="Search talents..." />
+                        <div id="talentCount" class="cc-count"></div>
+
+                        <div class="cc-subheading">Selected</div>
+                        <div id="selectedTalentsContainer" class="cc-selected"></div>
+
+                        <div class="cc-subheading">Available</div>
+                        <div id="availableTalentsContainer" class="cc-scroll cc-scroll-features"></div>
+                    </div>
+
+                    <!-- Force powers -->
+                    <div class="cc-box cc-panel-force cc-panel-span-2">
+                        <div class="cc-box-heading" id="forcePowersHeading">Force Powers the Character Has</div>
+                        <input id="forcePowerSearch" class="cc-search" placeholder="Search force powers..." />
+                        <div id="forcePowerCount" class="cc-count"></div>
+
+                        <div class="cc-subheading">Selected</div>
+                        <div id="selectedForcePowersContainer" class="cc-selected"></div>
+
+                        <div class="cc-subheading">Available</div>
+                        <div id="availableForcePowersContainer" class="cc-scroll cc-scroll-force"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cc-right">
+                <!-- Trained skills -->
+                <div class="cc-skills-board">
+                    <div class="cc-skills-title" id="skillsHeading">Trained Skills</div>
+
+                    <div class="cc-skills-header">
+                        <div class="cc-pill">Skills</div>
+                        <div class="cc-pill">Bonus</div>
+                    </div>
+
+                    <div id="trainedSkillsContainer" class="cc-skills-list"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Cached reference data
+        let speciesCache = [];
+        let heroicClassCache = [];
+        let skillsCache = [];
+        let allFeats = [];
+        let allTalents = [];
+        let allForcePowers = [];
+
+        // Current selected feats and force powers
+        let selectedFeatIdsState = [];
+        let selectedForcePowerIdsState = [];
+        let speciesChosenFeatsState = [];
+
+        // Which talent trees each heroic class can use
+        const talentTreeClassAccess = [
+            {
+                heroicClass: "Jedi",
+                talentTrees: [
+                    "Jedi Consular",
+                    "Jedi Guardian",
+                    "Jedi Sentinel",
+                    "Lightsaber Combat"
+                ]
+            },
+            {
+                heroicClass: "Noble",
+                talentTrees: [
+                    "Anticipation",
+                    "Collaborator",
+                    "Disgrace",
+                    "Exceptional Followers",
+                    "Exile",
+                    "Fencing",
+                    "Gambling Leader",
+                    "Ideologue",
+                    "Influence",
+                    "Inspiration",
+                    "Leadership",
+                    "Lineage",
+                    "Loyal Protector",
+                    "Master of Intrigue",
+                    "Provocateur",
+                    "Skill Challenge",
+                    "Superior Skills",
+                    "Talent Trees (Noble)",
+                    "Treatment"
+                ]
+            },
+            {
+                heroicClass: "Scoundrel",
+                talentTrees: [
+                    "Brigand",
+                    "Cowardice",
+                    "Fortune",
+                    "Malkite Poisoner",
+                    "Misfortune",
+                    "Opportunist",
+                    "Outlaw Tech",
+                    "Outsider",
+                    "Recklessness",
+                    "Revolutionary",
+                    "Run and Gun",
+                    "Slicer",
+                    "Smuggling",
+                    "Spacer",
+                    "Yuuzhan Vong Biotech"
+                ]
+            },
+            {
+                heroicClass: "Scout",
+                talentTrees: [
+                    "Advance Patrol",
+                    "Awareness",
+                    "Camouflage",
+                    "Espionage",
+                    "Exceptional Followers",
+                    "Fringer",
+                    "Hyperspace Explorer",
+                    "Master Scout",
+                    "Mobile Scout",
+                    "Reconnaissance",
+                    "Smashball Pro",
+                    "Spy",
+                    "Surveillance",
+                    "Survivor",
+                    "Unpredictable",
+                    "Versatility"
+                ]
+            },
+            {
+                heroicClass: "Soldier",
+                talentTrees: [
+                    "Ambusher",
+                    "Armor Specialist",
+                    "Brawler",
+                    "Brute Squad",
+                    "Commando",
+                    "Exceptional Followers",
+                    "Jumptrooper",
+                    "Master of the Amphistaff",
+                    "Mercenary",
+                    "Mistryl Shadow Guard",
+                    "Rocket Jumper",
+                    "Shockboxer",
+                    "Squad Leader",
+                    "Trooper",
+                    "Veteran",
+                    "Warrior",
+                    "Weapon Specialist"
+                ]
+            }
+        ];
+
+        // Runs once the page finishes loading
+        document.addEventListener("DOMContentLoaded", async () => {
+            await loadSpecies();
+            await loadHeroicClasses();
+            await loadSkills();
+            await loadFeats();
+            await loadTalents();
+            await loadForcePowers();
+
+            // Hook up ability score recalculation
+            wireAutoRecalc();
+
+            // If editing a character, load it
+            const characterId = document.getElementById("characterId")?.value;
+            if (characterId) {
+                await loadCharacter(characterId);
+            } else {
+                // Otherwise set up a blank character
+                recalculateAll();
+                enforceSkillRules();
+                renderFeats();
+                renderTalents();
+                renderForcePowers();
+                renderTraits();
+            }
+
+            // Save and delete buttons
+            document.getElementById("saveCharacterBtn")?.addEventListener("click", saveCharacter);
+            document.getElementById("deleteCharacterBtn")?.addEventListener("click", deleteCharacter);
+
+            // Recalculate when species changes
+            document.getElementById("speciesId")?.addEventListener("change", () => {
+                normalizeSpeciesChosenFeats();
+                recalculateAll();
+                enforceSkillRules();
+            });
+
+            // Recalculate when class changes
+            document.getElementById("heroicClassName")?.addEventListener("change", () => {
+                normalizeSelectedFeatState();
+                recalculateAll();
+            });
+
+            // Feat search
+            document.getElementById("featSearch")?.addEventListener("input", () => {
+                renderFeats();
+            });
+
+            // Talent search
+            document.getElementById("talentSearch")?.addEventListener("input", () => {
+                renderTalents(getSelectedTalentIds());
+            });
+
+            // Force power search
+            document.getElementById("forcePowerSearch")?.addEventListener("input", () => {
+                renderForcePowers();
+            });
+        });
+
+        // Shows or hides the debug message
+        function showDebugMessage(message) {
+            const el = document.getElementById("debugMessage");
+            if (!el) return;
+            el.textContent = message;
+            el.style.display = message ? "block" : "none";
+        }
+
+        // Loads species list from API
+        async function loadSpecies() {
+            try {
+                const response = await fetch("/api/reference/species");
+                if (!response.ok) throw new Error("Failed to load species.");
+
+                speciesCache = await response.json();
+
+                const dropdown = document.getElementById("speciesId");
+                dropdown.innerHTML = '<option value="">Character Species</option>';
+
+                speciesCache.forEach(s => {
+                    const option = document.createElement("option");
+                    option.value = s.id;
+                    option.textContent = s.name;
+                    dropdown.appendChild(option);
+                });
+            } catch (error) {
+                console.error("Error loading species:", error);
+            }
+        }
+
+        // Loads heroic classes from API
+        async function loadHeroicClasses() {
+            try {
+                const response = await fetch("/api/reference/heroicclasses");
+                if (!response.ok) throw new Error("Failed to load heroic classes.");
+
+                heroicClassCache = await response.json();
+
+                const dropdown = document.getElementById("heroicClassName");
+                dropdown.innerHTML = '<option value="">Character Class</option>';
+
+                heroicClassCache.forEach(c => {
+                    const option = document.createElement("option");
+                    option.value = c.name;
+                    option.textContent = c.name;
+                    dropdown.appendChild(option);
+                });
+            } catch (error) {
+                console.error("Error loading heroic classes:", error);
+            }
+        }
+
+        // Loads skills from API and builds the skills list
+        async function loadSkills() {
+            try {
+                const response = await fetch("/api/reference/skills");
+                if (!response.ok) throw new Error("Failed to load skills.");
+
+                skillsCache = await response.json();
+
+                const container = document.getElementById("trainedSkillsContainer");
+                container.innerHTML = "";
+
+                skillsCache.forEach(skill => {
+                    const row = document.createElement("div");
+                    row.className = "cc-skill-row";
+
+                    const left = document.createElement("div");
+                    left.className = "cc-skill-left";
+
+                    const checkbox = document.createElement("input");
+                    checkbox.type = "checkbox";
+                    checkbox.name = "trainedSkillIds";
+                    checkbox.value = skill.id;
+                    checkbox.dataset.skillName = skill.name;
+                    checkbox.addEventListener("change", () => {
+                        enforceSkillRules();
+                        renderSkillModifiers();
+                        renderFeats();
+                        renderTalents(getSelectedTalentIds());
+                        renderForcePowers();
+                    });
+
+                    const label = document.createElement("label");
+                    label.dataset.skillLabel = skill.name;
+                    label.textContent = skill.name;
+
+                    left.appendChild(checkbox);
+                    left.appendChild(label);
+
+                    const right = document.createElement("div");
+                    right.className = "cc-skill-right";
+                    right.dataset.skillBonus = skill.name;
+                    right.textContent = "0";
+
+                    row.appendChild(left);
+                    row.appendChild(right);
+                    container.appendChild(row);
+                });
+
+                renderSkillModifiers();
+            } catch (error) {
+                console.error("Error loading skills:", error);
+            }
+        }
+
+        // Loads feats from API
+        async function loadFeats() {
+            try {
+                const response = await fetch("/api/reference/feats");
+                if (!response.ok) throw new Error("Failed to load feats.");
+
+                allFeats = await response.json();
+                showDebugMessage(allFeats.length === 0 ? "No feats were returned from /api/reference/feats." : "");
+                normalizeSelectedFeatState();
+                normalizeSpeciesChosenFeats();
+                renderFeats();
+            } catch (error) {
+                console.error("Error loading feats:", error);
+                showDebugMessage("Failed to load feats from /api/reference/feats.");
+            }
+        }
+
+        // Loads talents from API
+        async function loadTalents() {
+            try {
+                const response = await fetch("/api/reference/talents");
+                if (!response.ok) throw new Error("Failed to load talents.");
+
+                allTalents = await response.json();
+                renderTalents();
+            } catch (error) {
+                console.error("Error loading talents:", error);
+                showDebugMessage("Failed to load talents from /api/reference/talents.");
+            }
+        }
+
+        // Loads force powers from API
+        async function loadForcePowers() {
+            try {
+                const response = await fetch("/api/reference/forcepowers");
+                if (!response.ok) throw new Error("Failed to load force powers.");
+
+                allForcePowers = await response.json();
+                renderForcePowers();
+            } catch (error) {
+                console.error("Error loading force powers:", error);
+                showDebugMessage("Failed to load force powers from /api/reference/forcepowers.");
+            }
+        }
+
+        // Returns the currently selected species object
+        function getSelectedSpecies() {
+            const speciesId = parseInt(document.getElementById("speciesId").value);
+            if (!speciesId) return null;
+            return speciesCache.find(s => s.id === speciesId) ?? null;
+        }
+
+        // Returns the currently selected heroic class object
+        function getSelectedHeroicClass() {
+            const heroicClassName = document.getElementById("heroicClassName").value;
+            return heroicClassCache.find(h => h.name === heroicClassName) ?? null;
+        }
+
+        function getSpeciesChoiceBonusFeatRules() {
+            const species = getSelectedSpecies();
+            return species?.choiceBonusFeatRules ?? [];
+        }
+
+        function normalizeSpeciesChosenFeats() {
+            const rules = getSpeciesChoiceBonusFeatRules();
+            if (!rules || rules.length === 0) {
+                speciesChosenFeatsState = [];
+                return;
+            }
+
+            const validOptions = new Set(
+                rules.flatMap(rule => (rule.options ?? []).map(x => (x || "").toLowerCase()))
+            );
+
+            speciesChosenFeatsState = (speciesChosenFeatsState ?? [])
+                .filter(name => validOptions.has((name || "").toLowerCase()));
+
+            const normalized = [];
+
+            rules.forEach(rule => {
+                const options = (rule.options ?? []).map(x => (x || "").toLowerCase());
+                const chosen = speciesChosenFeatsState.find(name => options.includes((name || "").toLowerCase()));
+                if (chosen) {
+                    normalized.push(chosen);
+                }
+            });
+
+            speciesChosenFeatsState = normalized;
+        }
+
+        function getSelectedSpeciesChosenFeats() {
+            normalizeSpeciesChosenFeats();
+            return [...speciesChosenFeatsState];
+        }
+
+        function setSpeciesChoiceFeat(choiceKey, featName) {
+            const rules = getSpeciesChoiceBonusFeatRules();
+            const rule = rules.find(x => x.choiceKey === choiceKey);
+            if (!rule) return;
+
+            const optionNamesLower = (rule.options ?? []).map(x => (x || "").toLowerCase());
+
+            speciesChosenFeatsState = (speciesChosenFeatsState ?? [])
+                .filter(name => !optionNamesLower.includes((name || "").toLowerCase()));
+
+            if (featName) {
+                speciesChosenFeatsState.push(featName);
+            }
+
+            normalizeSpeciesChosenFeats();
+        }
+
+        function renderSpeciesChoiceFeatSelectors() {
+            const container = document.getElementById("speciesChoiceFeatsContainer");
+            if (!container) return;
+
+            container.innerHTML = "";
+
+            const rules = getSpeciesChoiceBonusFeatRules();
+            if (!rules || rules.length === 0) return;
+
+            rules.forEach(rule => {
+                const wrapper = document.createElement("div");
+                wrapper.className = "cc-box";
+                wrapper.style.marginBottom = "8px";
+                wrapper.style.padding = "8px";
+
+                const label = document.createElement("div");
+                label.className = "cc-subheading";
+                label.textContent = rule.label || "Species Bonus Feat Choice";
+
+                const select = document.createElement("select");
+                select.className = "cc-control";
+                select.style.width = "100%";
+                select.style.marginTop = "4px";
+
+                const defaultOption = document.createElement("option");
+                defaultOption.value = "";
+                defaultOption.textContent = "Select Feat";
+                select.appendChild(defaultOption);
+
+                (rule.options ?? []).forEach(optionName => {
+                    const opt = document.createElement("option");
+                    opt.value = optionName;
+                    opt.textContent = optionName;
+                    select.appendChild(opt);
+                });
+
+                const currentChoice = getSelectedSpeciesChosenFeats().find(name =>
+                    (rule.options ?? []).some(option => (option || "").toLowerCase() === (name || "").toLowerCase())
+                );
+
+                if (currentChoice) {
+                    select.value = currentChoice;
+                }
+
+                select.addEventListener("change", () => {
+                    setSpeciesChoiceFeat(rule.choiceKey, select.value || null);
+                    renderSkillModifiers();
+                    renderFeats();
+                    renderTalents(getSelectedTalentIds());
+                    renderForcePowers();
+                });
+
+                wrapper.appendChild(label);
+                wrapper.appendChild(select);
+                container.appendChild(wrapper);
+            });
+        }
+
+        // Gets species ability modifiers
+        function getSpeciesModifiers() {
+            const species = getSelectedSpecies();
+            return {
+                strMod: species?.strMod ?? 0,
+                dexMod: species?.dexMod ?? 0,
+                conMod: species?.conMod ?? 0,
+                intMod: species?.intMod ?? 0,
+                wisMod: species?.wisMod ?? 0,
+                chaMod: species?.chaMod ?? 0
+            };
+        }
+
+        // Reads the base ability scores entered by the user
+        function getBaseAbilityScores() {
+            return {
+                strength: parseInt(document.getElementById("strength").value) || 0,
+                dexterity: parseInt(document.getElementById("dexterity").value) || 0,
+                constitution: parseInt(document.getElementById("constitution").value) || 0,
+                intelligence: parseInt(document.getElementById("intelligence").value) || 0,
+                wisdom: parseInt(document.getElementById("wisdom").value) || 0,
+                charisma: parseInt(document.getElementById("charisma").value) || 0
+            };
+        }
+
+        // Adds species modifiers to base scores
+        function getFinalAbilityScores() {
+            const base = getBaseAbilityScores();
+            const mods = getSpeciesModifiers();
+
+            return {
+                strength: base.strength + mods.strMod,
+                dexterity: base.dexterity + mods.dexMod,
+                constitution: base.constitution + mods.conMod,
+                intelligence: base.intelligence + mods.intMod,
+                wisdom: base.wisdom + mods.wisMod,
+                charisma: base.charisma + mods.chaMod
+            };
+        }
+
+        // Updates final scores and modifiers in the UI
+        function renderFinalAbilityScores() {
+            const finalScores = getFinalAbilityScores();
+
+            document.getElementById("strengthFinal").value = finalScores.strength;
+            document.getElementById("dexterityFinal").value = finalScores.dexterity;
+            document.getElementById("constitutionFinal").value = finalScores.constitution;
+            document.getElementById("intelligenceFinal").value = finalScores.intelligence;
+            document.getElementById("wisdomFinal").value = finalScores.wisdom;
+            document.getElementById("charismaFinal").value = finalScores.charisma;
+
+            document.getElementById("strengthMod").value = formatModifier(getAbilityModifier(finalScores.strength));
+            document.getElementById("dexterityMod").value = formatModifier(getAbilityModifier(finalScores.dexterity));
+            document.getElementById("constitutionMod").value = formatModifier(getAbilityModifier(finalScores.constitution));
+            document.getElementById("intelligenceMod").value = formatModifier(getAbilityModifier(finalScores.intelligence));
+            document.getElementById("wisdomMod").value = formatModifier(getAbilityModifier(finalScores.wisdom));
+            document.getElementById("charismaMod").value = formatModifier(getAbilityModifier(finalScores.charisma));
+        }
+
+        // Converts an ability score into its modifier
+        function getAbilityModifier(score) {
+            return Math.floor((score - 10) / 2);
+        }
+
+        // Tells which ability each skill uses
+        function getSkillAbilityMap() {
+            return {
+                "Acrobatics": "dexterity",
+                "Climb": "strength",
+                "Deception": "charisma",
+                "Endurance": "constitution",
+                "Gather Information": "charisma",
+                "Initiative": "dexterity",
+                "Jump": "strength",
+                "Knowledge (Bureaucracy)": "intelligence",
+                "Knowledge (Galactic Lore)": "intelligence",
+                "Knowledge (Life Sciences)": "intelligence",
+                "Knowledge (Physical Sciences)": "intelligence",
+                "Knowledge (Social Sciences)": "intelligence",
+                "Knowledge (Tactics)": "intelligence",
+                "Knowledge (Technology)": "intelligence",
+                "Mechanics": "intelligence",
+                "Perception": "wisdom",
+                "Persuasion": "charisma",
+                "Pilot": "dexterity",
+                "Ride": "dexterity",
+                "Stealth": "dexterity",
+                "Survival": "wisdom",
+                "Swim": "strength",
+                "Treat Injury": "wisdom",
+                "Use Computer": "intelligence",
+                "Use the Force": "charisma"
+            };
+        }
+
+        // Calculates one skill's total modifier
+        function calculateSkillModifier(skillName, isTrained) {
+            const finalScores = getFinalAbilityScores();
+            const abilityMap = getSkillAbilityMap();
+            const abilityKey = abilityMap[skillName];
+            if (!abilityKey) return 0;
+
+            const abilityScore = finalScores[abilityKey] ?? 10;
+            const abilityMod = Math.floor((abilityScore - 10) / 2);
+            const speciesSkillFocusBonus = getGrantedSpeciesFeatDetails()
+                .filter(x => (x.featName || "").toLowerCase() === "skill focus" && (x.skillName || "").toLowerCase() === (skillName || "").toLowerCase())
+                .length * 5;
+
+            return abilityMod + (isTrained ? 5 : 0) + speciesSkillFocusBonus;
+        }
+
+        // Updates the displayed skill bonuses
+        function renderSkillModifiers() {
+            const checkboxes = Array.from(document.querySelectorAll("input[name='trainedSkillIds']"));
+
+            checkboxes.forEach(cb => {
+                const skillName = cb.dataset.skillName;
+                const label = cb.parentElement.querySelector("label");
+                const bonusBox = cb.closest(".cc-skill-row")?.querySelector(".cc-skill-right");
+
+                if (!label) return;
+
+                const modifier = calculateSkillModifier(skillName, cb.checked);
+                const modifierText = modifier >= 0 ? `+${modifier}` : `${modifier}`;
+
+                label.textContent = skillName;
+                if (bonusBox) {
+                    bonusBox.textContent = modifierText;
+                }
+            });
+        }
+
+        // Gets how many trained skills the class can have at level 1
+        function getTrainedSkillLimit() {
+            const heroic = getSelectedHeroicClass();
+            if (!heroic) return 0;
+
+            const finalInt = parseInt(document.getElementById("intelligenceFinal").value) || 0;
+            const intMod = getAbilityModifier(finalInt);
+            const speciesBonus = getSelectedSpecies()?.bonusTrainedSkillCount ?? 0;
+
+            return Math.max(1, heroic.trainedSkillsAtLevel1 + intMod + speciesBonus);
+        }
+
+        // Checks if a skill is allowed for the selected class
+        function isSkillAllowedForClass(skillName, classSkills) {
+            if (classSkills.includes(skillName)) return true;
+            if (classSkills.includes("Knowledge (all)") && skillName.startsWith("Knowledge (")) return true;
+            return false;
+        }
+
+        // Updates the trained skills heading count
+        function updateSkillHeading() {
+            const heading = document.getElementById("skillsHeading");
+            if (!heading) return;
+
+            const selected = document.querySelectorAll("input[name='trainedSkillIds']:checked").length;
+            const limit = getTrainedSkillLimit();
+
+            heading.textContent = `Trained Skills (${selected} / ${limit})`;
+        }
+
+        // Enables only valid skills and enforces the class limit
+        function enforceSkillRules() {
+            const heroic = getSelectedHeroicClass();
+            const checkboxes = Array.from(document.querySelectorAll("input[name='trainedSkillIds']"));
+
+            if (!heroic) {
+                checkboxes.forEach(cb => {
+                    cb.disabled = true;
+                    cb.checked = false;
+                });
+                updateSkillHeading();
+                renderSkillModifiers();
+                return;
+            }
+
+            const allowedSkills = getEffectiveClassSkills();
+            const limit = getTrainedSkillLimit();
+
+            checkboxes.forEach(cb => {
+                const skillName = cb.dataset.skillName;
+                const allowed = isSkillAllowedForClass(skillName, allowedSkills);
+
+                cb.disabled = !allowed;
+                if (!allowed) cb.checked = false;
+            });
+
+            const checkedAllowed = checkboxes.filter(cb => cb.checked && !cb.disabled);
+            if (checkedAllowed.length > limit) {
+                checkedAllowed.slice(limit).forEach(cb => cb.checked = false);
+                alert(`You can only select ${limit} trained skills for ${heroic.name}.`);
+            }
+
+            updateSkillHeading();
+            renderSkillModifiers();
+        }
+
+        // Some species get one bonus feat at level 1
+        function getBonusFeatCount(speciesName) {
+            const species = getSelectedSpecies();
+            return species?.bonusFeatCount ?? 0;
+        }
+
+        // Total feat slots at level 1
+        function getTotalFeatSlots() {
+            const species = getSelectedSpecies();
+            const speciesName = species?.name ?? "";
+            return 1 + getBonusFeatCount(speciesName);
+        }
+
+        // Total talent slots at level 1
+        function getTotalTalentSlots() {
+            return 1;
+        }
+
+        // Feats that can be taken more than once
+        function isRepeatableFeatName(featName) {
+            const name = (featName || "").trim().toLowerCase();
+            return name === "force training" || name === "linguist";
+        }
+
+        // Counts how many times Linguist is selected
+        function getLinguistCount() {
+            return getSelectedFeatNames().filter(name => name === "linguist").length;
+        }
+
+        // Counts how many times a feat ID is selected
+        function getSelectedFeatCount(featId) {
+            return selectedFeatIdsState.filter(id => id === featId).length;
+        }
+
+        // True if Force Training is selected at least once
+        function hasForceTraining() {
+            return getForceTrainingCount() > 0;
+        }
+
+        // Counts Force Training selections
+        function getForceTrainingCount() {
+            const forceTrainingFeat = allFeats.find(f => (f.name || "").trim().toLowerCase() === "force training");
+            if (!forceTrainingFeat) return 0;
+
+            return getSelectedFeatIds().filter(id => id === forceTrainingFeat.id).length;
+        }
+
+        // Calculates how many force powers can be chosen
+        function getForcePowerSlots() {
+            const forceTrainingCount = getForceTrainingCount();
+            if (forceTrainingCount <= 0) return 0;
+
+            const finalWis = parseInt(document.getElementById("wisdomFinal").value) || 10;
+            const wisMod = Math.floor((finalWis - 10) / 2);
+            const powersPerTraining = Math.max(1, 1 + wisMod);
+
+            return forceTrainingCount * powersPerTraining;
+        }
+
+        // Starting feats granted by class
+        function getClassStartingFeats(heroicClassName) {
+            switch ((heroicClassName || "").toLowerCase()) {
+                case "jedi":
+                    return [
+                        "Force Sensitivity",
+                        "Weapon Proficiency (Lightsabers)",
+                        "Weapon Proficiency (Simple Weapons)"
+                    ];
+                case "noble":
+                    return [
+                        "Linguist",
+                        "Weapon Proficiency (Pistols)",
+                        "Weapon Proficiency (Simple Weapons)"
+                    ];
+                case "scoundrel":
+                    return [
+                        "Point-Blank Shot",
+                        "Weapon Proficiency (Pistols)",
+                        "Weapon Proficiency (Simple Weapons)"
+                    ];
+                case "scout":
+                    return [
+                        "Shake It Off",
+                        "Weapon Proficiency (Pistols)",
+                        "Weapon Proficiency (Rifles)",
+                        "Weapon Proficiency (Simple Weapons)"
+                    ];
+                case "soldier":
+                    return [
+                        "Armor Proficiency (Light)",
+                        "Armor Proficiency (Medium)",
+                        "Weapon Proficiency (Pistols)",
+                        "Weapon Proficiency (Rifles)",
+                        "Weapon Proficiency (Simple Weapons)"
+                    ];
+                default:
+                    return [];
+            }
+        }
+
+        // Converts granted starting feat names to IDs
+        function getGrantedClassFeatIds() {
+            const heroicClassName = document.getElementById("heroicClassName")?.value || "";
+            const grantedNames = getClassStartingFeats(heroicClassName).map(x => x.toLowerCase());
+
+            return allFeats
+                .filter(f => grantedNames.includes((f.name || "").toLowerCase()))
+                .map(f => f.id);
+        }
+
+        function getSpeciesBonusClassSkills() {
+            const species = getSelectedSpecies();
+            return species?.bonusClassSkills ?? [];
+        }
+
+        function getEffectiveClassSkills() {
+            const heroic = getSelectedHeroicClass();
+            const classSkills = [...(heroic?.classSkills ?? [])];
+            const bonusClassSkills = getSpeciesBonusClassSkills();
+
+            bonusClassSkills.forEach(skill => {
+                if (!classSkills.includes(skill)) {
+                    classSkills.push(skill);
+                }
+            });
+
+            return classSkills;
+        }
+
+        function getAutomaticSpeciesFeatNames() {
+            const species = getSelectedSpecies();
+            return species?.automaticBonusFeatNames ?? [];
+        }
+
+        function getBaseSelectedFeatNamesForSpeciesChecks() {
+            const classFeatNames = getClassStartingFeats(document.getElementById("heroicClassName")?.value || "");
+            const userFeatNames = selectedFeatIdsState
+                .map(id => allFeats.find(f => f.id === id))
+                .filter(Boolean)
+                .map(f => f.name);
+
+            const chosenSpeciesFeatNames = getSelectedSpeciesChosenFeats();
+
+            return [...userFeatNames, ...classFeatNames, ...getAutomaticSpeciesFeatNames(), ...chosenSpeciesFeatNames]
+                .map(x => (x || "").toLowerCase());
+        }
+
+        function meetsSpeciesConditionalRule(rule) {
+            if (!rule) return false;
+
+            const trainedSkills = getSelectedTrainedSkillNames();
+            const selectedFeatNames = getBaseSelectedFeatNamesForSpeciesChecks();
+            const finalScores = getFinalAbilityScores();
+            const bab = getBaseAttackBonus(document.getElementById("heroicClassName")?.value || "");
+
+            if (rule.requiredTrainedSkill && !trainedSkills.includes(rule.requiredTrainedSkill.toLowerCase())) {
+                return false;
+            }
+
+            if (rule.requiredFeatName && !selectedFeatNames.includes(rule.requiredFeatName.toLowerCase())) {
+                return false;
+            }
+
+            if (rule.minimumDexterity && finalScores.dexterity < rule.minimumDexterity) {
+                return false;
+            }
+
+            if (rule.minimumStrength && finalScores.strength < rule.minimumStrength) {
+                return false;
+            }
+
+            if (rule.minimumBaseAttackBonus && bab < rule.minimumBaseAttackBonus) {
+                return false;
+            }
+
+            return true;
+        }
+
+        function getGrantedSpeciesFeatDetails() {
+            const species = getSelectedSpecies();
+            if (!species) return [];
+
+            const details = [];
+
+            (species.automaticBonusFeatNames ?? []).forEach(featName => {
+                const feat = allFeats.find(f => (f.name || "").toLowerCase() === (featName || "").toLowerCase());
+                if (!feat) return;
+
+                details.push({
+                    id: feat.id,
+                    featName: feat.name,
+                    label: feat.name,
+                    skillName: null,
+                    isSpeciesGranted: true
+                });
+            });
+
+            (species.conditionalBonusFeatRules ?? []).forEach(rule => {
+                if (!meetsSpeciesConditionalRule(rule)) return;
+
+                const feat = allFeats.find(f => (f.name || "").toLowerCase() === (rule.featName || "").toLowerCase());
+                if (!feat) return;
+
+                details.push({
+                    id: feat.id,
+                    featName: feat.name,
+                    label: rule.label || feat.name,
+                    skillName: rule.skillName || null,
+                    isSpeciesGranted: true
+                });
+            });
+
+            getSelectedSpeciesChosenFeats().forEach(featName => {
+                const feat = allFeats.find(f => (f.name || "").toLowerCase() === (featName || "").toLowerCase());
+                if (!feat) return;
+
+                details.push({
+                    id: feat.id,
+                    featName: feat.name,
+                    label: feat.name,
+                    skillName: null,
+                    isSpeciesGranted: true
+                });
+            });
+
+            return details;
+        }
+
+        function getGrantedSpeciesFeatIds() {
+            return getGrantedSpeciesFeatDetails().map(x => x.id);
+        }
+
+        function getSpeciesGrantedFeatCount(featId) {
+            return getGrantedSpeciesFeatDetails().filter(x => x.id === featId).length;
+        }
+
+        function getSpeciesGrantedFeatLabel(featId) {
+            return getGrantedSpeciesFeatDetails().find(x => x.id === featId)?.label || null;
+        }
+
+        // Cleans up selected feat state
+        function normalizeSelectedFeatState() {
+            const grantedSet = new Set(getGrantedClassFeatIds());
+            const nonRepeatableSeen = new Set();
+            const normalized = [];
+
+            for (const featId of selectedFeatIdsState) {
+                const feat = allFeats.find(f => f.id === featId);
+                if (!feat) continue;
+
+                const isRepeatable = isRepeatableFeatName(feat.name);
+                const isGranted = grantedSet.has(featId);
+
+                if (isGranted && !isRepeatable) {
+                    continue;
+                }
+
+                if (isRepeatable) {
+                    normalized.push(featId);
+                    continue;
+                }
+
+                if (!nonRepeatableSeen.has(featId)) {
+                    nonRepeatableSeen.add(featId);
+                    normalized.push(featId);
+                }
+            }
+
+            const maxSlots = getTotalFeatSlots();
+            if (normalized.length > maxSlots) {
+                normalized.length = maxSlots;
+            }
+
+            selectedFeatIdsState = normalized;
+        }
+
+        // Pulls the first number out of text
+        function extractNumber(text) {
+            const match = text.match(/\d+/);
+            return match ? parseInt(match[0]) : 0;
+        }
+
+        // Gets selected trained skill names
+        function getSelectedTrainedSkillNames() {
+            return Array.from(document.querySelectorAll("input[name='trainedSkillIds']:checked"))
+                .map(cb => cb.dataset.skillName.toLowerCase());
+        }
+
+        // Gets only user-picked feats
+        function getUserSelectedFeatIds() {
+            return [...selectedFeatIdsState];
+        }
+
+        // Gets all selected feats including class-granted ones
+        function getSelectedFeatIds() {
+            const grantedIds = getGrantedClassFeatIds();
+            const speciesGrantedIds = getGrantedSpeciesFeatIds();
+            return [...selectedFeatIdsState, ...grantedIds, ...speciesGrantedIds];
+        }
+
+        // Gets selected feat names
+        function getSelectedFeatNames(excludeId = null) {
+            return getSelectedFeatIds()
+                .filter(id => excludeId == null || id !== excludeId)
+                .map(id => allFeats.find(f => f.id === id))
+                .filter(Boolean)
+                .map(f => f.name.toLowerCase());
+        }
+
+        // Gets selected talent IDs
+        function getSelectedTalentIds() {
+            return Array.from(document.querySelectorAll(".talent-checkbox:checked"))
+                .map(cb => parseInt(cb.value));
+        }
+
+        // Gets selected talent names
+        function getSelectedTalentNames(excludeId = null) {
+            return Array.from(document.querySelectorAll(".talent-checkbox:checked"))
+                .filter(cb => excludeId == null || parseInt(cb.value) !== excludeId)
+                .map(cb => cb.dataset.talentName.toLowerCase());
+        }
+
+        // Gets selected force power IDs
+        function getSelectedForcePowerIds() {
+            return [...selectedForcePowerIdsState];
+        }
+
+        // Counts how many times a force power was selected
+        function getSelectedForcePowerCount(forcePowerId) {
+            return selectedForcePowerIdsState.filter(id => id === forcePowerId).length;
+        }
+
+        // Adds a force power if there is room
+        function addForcePowerSelection(forcePowerId) {
+            if (selectedForcePowerIdsState.length >= getForcePowerSlots()) {
+                return;
+            }
+
+            selectedForcePowerIdsState.push(forcePowerId);
+            renderForcePowers();
+        }
+
+        // Removes one instance of a force power
+        function removeForcePowerSelection(forcePowerId) {
+            const idx = selectedForcePowerIdsState.lastIndexOf(forcePowerId);
+            if (idx >= 0) {
+                selectedForcePowerIdsState.splice(idx, 1);
+            }
+
+            renderForcePowers();
+        }
+
+        // Checks if a feat name exists in a list
+        function hasSelectedFeatByName(nameToFind, selectedFeatNames) {
+            const normalized = nameToFind.trim().toLowerCase();
+            return selectedFeatNames.some(name => name === normalized);
+        }
+
+        // True if Force Sensitivity is selected
+        function hasForceSensitivity() {
+            return getSelectedFeatNames().includes("force sensitivity");
+        }
+
+        // Gets allowed talent trees for a class
+        function getAllowedTalentTreesForClass(heroicClassName) {
+            const entry = talentTreeClassAccess.find(x =>
+                x.heroicClass.toLowerCase() === (heroicClassName || "").toLowerCase()
+            );
+
+            return entry?.talentTrees ?? [];
+        }
+
+        // Checks if a talent is available by class access or Force Sensitivity
+        function isTalentAvailableByClassOrForce(talent) {
+            const heroicClassName = document.getElementById("heroicClassName")?.value || "";
+            const allowedTrees = getAllowedTalentTreesForClass(heroicClassName).map(x => x.toLowerCase());
+            const talentTree = (talent.talentTree || "").toLowerCase();
+            const isForceTalent = (talent.talentType || "").toLowerCase() === "force";
+
+            if (allowedTrees.includes(talentTree)) return true;
+            if (isForceTalent && hasForceSensitivity()) return true;
+            return false;
+        }
+
+        // Checks if a feat meets all prerequisites
+        function meetsFeatPrerequisites(feat) {
+            const heroicClassName = document.getElementById("heroicClassName")?.value || "";
+            const grantedStartingFeats = getClassStartingFeats(heroicClassName).map(x => x.toLowerCase());
+            const featName = (feat.name || "").toLowerCase();
+
+            if (grantedStartingFeats.includes(featName) && !isRepeatableFeatName(feat.name)) {
+                return true;
+            }
+
+            if (!feat.prerequisite) return true;
+
+            const prereqText = feat.prerequisite.trim();
+            if (prereqText === "") return true;
+
+            const finalScores = getFinalAbilityScores();
+            const trainedSkills = getSelectedTrainedSkillNames();
+            const selectedFeatNames = getSelectedFeatNames(feat.id);
+            const speciesName = (getSelectedSpecies()?.name ?? "").toLowerCase();
+            const bab = getBaseAttackBonus(heroicClassName);
+
+            const parts = prereqText.split(",").map(p => p.trim()).filter(Boolean);
+
+            for (const part of parts) {
+                const lower = part.toLowerCase();
+                let match;
+
+                match = lower.match(/^strength\s+(\d+)$/);
+                if (match) { if (finalScores.strength < parseInt(match[1])) return false; continue; }
+                match = lower.match(/^dexterity\s+(\d+)$/);
+                if (match) { if (finalScores.dexterity < parseInt(match[1])) return false; continue; }
+                match = lower.match(/^constitution\s+(\d+)$/);
+                if (match) { if (finalScores.constitution < parseInt(match[1])) return false; continue; }
+                match = lower.match(/^intelligence\s+(\d+)$/);
+                if (match) { if (finalScores.intelligence < parseInt(match[1])) return false; continue; }
+                match = lower.match(/^wisdom\s+(\d+)$/);
+                if (match) { if (finalScores.wisdom < parseInt(match[1])) return false; continue; }
+                match = lower.match(/^charisma\s+(\d+)$/);
+                if (match) { if (finalScores.charisma < parseInt(match[1])) return false; continue; }
+                match = lower.match(/^base attack bonus\s+(\d+)$/);
+                if (match) { if (bab < parseInt(match[1])) return false; continue; }
+
+                match = lower.match(/^trained in\s+(.+)$/);
+                if (match) {
+                    const skillText = match[1].trim().toLowerCase();
+
+                    if (skillText.includes(" and ")) {
+                        const requiredSkills = skillText.split(" and ").map(s => s.trim());
+                        if (!requiredSkills.every(skill => trainedSkills.includes(skill))) return false;
+                    } else if (skillText.includes(" or ")) {
+                        const requiredSkills = skillText.split(" or ").map(s => s.trim());
+                        if (!requiredSkills.some(skill => trainedSkills.includes(skill))) return false;
+                    } else {
+                        if (!trainedSkills.includes(skillText)) return false;
+                    }
+                    continue;
+                }
+
+                if (lower === "non-droid") {
+                    if (speciesName === "droid") return false;
+                    continue;
+                }
+
+                if (lower === "droid") {
+                    if (speciesName !== "droid") return false;
+                    continue;
+                }
+
+                if (lower.includes("level")) {
+                    const requiredLevel = extractNumber(lower);
+                    const currentLevel = parseInt(document.getElementById("level")?.value || "1", 10);
+                    if (currentLevel < requiredLevel) return false;
+                    continue;
+                }
+
+                const knownSpecies = [
+                    "anarrian", "bothan", "cerean", "droid", "duros", "ewok", "gamorrean",
+                    "gungan", "human", "ithorian", "kel dor", "mon calamari", "nelvaanian",
+                    "nikto", "nyriaanan", "quarren", "republic clone", "rodian",
+                    "sorcerer of rhand", "sullustan", "trandoshan", "twi'lek", "vahla",
+                    "wookiee", "zabrak"
+                ];
+
+                if (knownSpecies.includes(lower)) {
+                    if (speciesName !== lower) return false;
+                    continue;
+                }
+
+                const featLikeText = lower.includes("weapon proficiency") ||
+                    lower.includes("skill focus") ||
+                    lower.includes("martial arts") ||
+                    lower.includes("double attack") ||
+                    lower.includes("dual weapon mastery") ||
+                    lower.includes("dodge") ||
+                    lower.includes("mobility") ||
+                    lower.includes("power attack") ||
+                    lower.includes("point-blank shot") ||
+                    lower.includes("precise shot") ||
+                    lower.includes("rapid shot") ||
+                    lower.includes("rapid strike") ||
+                    lower.includes("quick draw") ||
+                    lower.includes("trip") ||
+                    lower.includes("pin") ||
+                    lower.includes("crush") ||
+                    lower.includes("bantha rush") ||
+                    lower.includes("cleave") ||
+                    lower.includes("combat reflexes") ||
+                    lower.includes("coordinated attack") ||
+                    lower.includes("vehicular combat") ||
+                    lower.includes("running attack") ||
+                    lower.includes("tech specialist") ||
+                    lower.includes("force sensitivity") ||
+                    lower.includes("force training") ||
+                    lower.includes("melee defense") ||
+                    lower.includes("sniper") ||
+                    lower.includes("careful shot") ||
+                    lower.includes("opportunistic trickery") ||
+                    lower.includes("attack combo") ||
+                    lower.includes("lightning draw") ||
+                    lower.includes("burst fire") ||
+                    lower.includes("skill training") ||
+                    lower.includes("mounted combat") ||
+                    lower.includes("starship tactics") ||
+                    lower.includes("throw") ||
+                    lower.includes("return fire") ||
+                    lower.includes("toughness") ||
+                    lower.includes("flurry") ||
+                    lower.includes("trample") ||
+                    lower.includes("resolute stance") ||
+                    lower.includes("rapid assault");
+
+                if (featLikeText) {
+                    if (lower.includes(" or ")) {
+                        const options = lower.split(" or ").map(x => x.trim());
+                        if (!options.some(option => hasSelectedFeatByName(option, selectedFeatNames))) return false;
+                    } else {
+                        if (!hasSelectedFeatByName(lower, selectedFeatNames)) return false;
+                    }
+                    continue;
+                }
+            }
+
+            return true;
+        }
+
+        // Checks if a talent meets all prerequisites
+        function meetsTalentPrerequisites(talent) {
+            if (!isTalentAvailableByClassOrForce(talent)) return false;
+
+            const prereqs = talent.prerequisites ?? [];
+            if (prereqs.length === 0) return true;
+
+            const finalScores = getFinalAbilityScores();
+            const trainedSkills = getSelectedTrainedSkillNames();
+            const selectedFeatNames = getSelectedFeatNames();
+            const selectedTalentNames = getSelectedTalentNames(talent.id);
+            const speciesName = (getSelectedSpecies()?.name ?? "").toLowerCase();
+            const bab = getBaseAttackBonus(document.getElementById("heroicClassName")?.value || "");
+
+            for (const prereq of prereqs) {
+                const lower = (prereq || "").toLowerCase().trim();
+                let match;
+
+                match = lower.match(/^strength\s+(\d+)$/);
+                if (match && finalScores.strength < parseInt(match[1])) return false;
+                match = lower.match(/^dexterity\s+(\d+)$/);
+                if (match && finalScores.dexterity < parseInt(match[1])) return false;
+                match = lower.match(/^constitution\s+(\d+)$/);
+                if (match && finalScores.constitution < parseInt(match[1])) return false;
+                match = lower.match(/^intelligence\s+(\d+)$/);
+                if (match && finalScores.intelligence < parseInt(match[1])) return false;
+                match = lower.match(/^wisdom\s+(\d+)$/);
+                if (match && finalScores.wisdom < parseInt(match[1])) return false;
+                match = lower.match(/^charisma\s+(\d+)$/);
+                if (match && finalScores.charisma < parseInt(match[1])) return false;
+                match = lower.match(/^base attack bonus \+?(\d+)$/);
+                if (match && bab < parseInt(match[1])) return false;
+
+                match = lower.match(/^trained in (.+)$/);
+                if (match) {
+                    const skillText = match[1].trim().toLowerCase();
+
+                    if (skillText.includes(" and ")) {
+                        const requiredSkills = skillText.split(" and ").map(s => s.trim());
+                        if (!requiredSkills.every(skill => trainedSkills.includes(skill))) return false;
+                    } else if (skillText.includes(" or ")) {
+                        const requiredSkills = skillText.split(" or ").map(s => s.trim());
+                        if (!requiredSkills.some(skill => trainedSkills.includes(skill))) return false;
+                    } else {
+                        if (!trainedSkills.includes(skillText)) return false;
+                    }
+                    continue;
+                }
+
+                if (lower === "force sensitivity") {
+                    if (!selectedFeatNames.includes("force sensitivity")) return false;
+                    continue;
+                }
+
+                if (lower === speciesName) continue;
+                if (selectedFeatNames.includes(lower)) continue;
+                if (selectedTalentNames.includes(lower)) continue;
+            }
+
+            return true;
+        }
+
+        // Updates feat count display
+        function updateFeatCount() {
+            const max = getTotalFeatSlots();
+            const current = selectedFeatIdsState.length;
+            const featCount = document.getElementById("featCount");
+            if (featCount) {
+                featCount.textContent = `(${current} / ${max})`;
+            }
+        }
+
+        // Updates talent count display
+        function updateTalentCount() {
+            const max = getTotalTalentSlots();
+            const current = getSelectedTalentIds().length;
+            const talentCount = document.getElementById("talentCount");
+            if (talentCount) talentCount.textContent = `(${current} / ${max})`;
+        }
+
+        // Updates force power count display
+        function updateForcePowerCount() {
+            const max = getForcePowerSlots();
+            const current = selectedForcePowerIdsState.length;
+            const countEl = document.getElementById("forcePowerCount");
+            if (countEl) countEl.textContent = `(${current} / ${max})`;
+        }
+
+        // Adds a feat selection
+        function addFeatSelection(featId) {
+            const feat = allFeats.find(f => f.id === featId);
+            if (!feat) return;
+
+            normalizeSelectedFeatState();
+
+            if (!isRepeatableFeatName(feat.name) && selectedFeatIdsState.includes(featId)) {
+                return;
+            }
+
+            if (selectedFeatIdsState.length >= getTotalFeatSlots()) {
+                return;
+            }
+
+            selectedFeatIdsState.push(featId);
+
+            renderFeats();
+            renderLanguages(getSelectedBonusLanguages());
+            renderTalents(getSelectedTalentIds());
+            renderForcePowers();
+        }
+
+        // Removes a feat selection
+        function removeFeatSelection(featId) {
+            const feat = allFeats.find(f => f.id === featId);
+            if (!feat) return;
+
+            if (isRepeatableFeatName(feat.name)) {
+                const idx = selectedFeatIdsState.lastIndexOf(featId);
+                if (idx >= 0) {
+                    selectedFeatIdsState.splice(idx, 1);
+                }
+            } else {
+                selectedFeatIdsState = selectedFeatIdsState.filter(id => id !== featId);
+            }
+
+            const maxForcePowers = getForcePowerSlots();
+            if (selectedForcePowerIdsState.length > maxForcePowers) {
+                selectedForcePowerIdsState = selectedForcePowerIdsState.slice(0, maxForcePowers);
+            }
+
+            renderFeats();
+            renderLanguages(getSelectedBonusLanguages());
+            renderTalents(getSelectedTalentIds());
+            renderForcePowers();
+        }
+
+        // Creates +/- controls for repeatable feats
+        function createRepeatableFeatControl(feat, count, isGranted = false) {
+            const wrapper = document.createElement("div");
+            wrapper.className = "cc-compact-item";
+
+            const minusBtn = document.createElement("button");
+            minusBtn.type = "button";
+            minusBtn.textContent = "-";
+            minusBtn.className = "cc-btn cc-compact-btn";
+            minusBtn.disabled = getSelectedFeatCount(feat.id) <= 0;
+            minusBtn.addEventListener("click", () => {
+                removeFeatSelection(feat.id);
+            });
+
+            const label = document.createElement("div");
+            label.className = "cc-compact-label";
+            const grantedLabel = getSpeciesGrantedFeatLabel(feat.id) || feat.name;
+            label.textContent = isGranted ? `${grantedLabel} (Granted)` : feat.name;
+
+            const countBox = document.createElement("div");
+            countBox.className = "cc-compact-count";
+            countBox.textContent = String(count);
+
+            const plusBtn = document.createElement("button");
+            plusBtn.type = "button";
+            plusBtn.textContent = "+";
+            plusBtn.className = "cc-btn cc-compact-btn";
+            plusBtn.disabled = selectedFeatIdsState.length >= getTotalFeatSlots() || !meetsFeatPrerequisites(feat);
+            plusBtn.addEventListener("click", () => {
+                addFeatSelection(feat.id);
+            });
+
+            wrapper.appendChild(minusBtn);
+            wrapper.appendChild(label);
+            wrapper.appendChild(countBox);
+            wrapper.appendChild(plusBtn);
+
+            return wrapper;
+        }
+
+        // Creates a checkbox for a normal feat
+        function createFeatCheckbox(feat, isChecked, isGranted = false) {
+            const wrapper = document.createElement("div");
+            wrapper.className = "cc-compact-item";
+
+            const checkbox = document.createElement("input");
+            checkbox.type = "checkbox";
+            checkbox.className = "feat-checkbox";
+            checkbox.value = feat.id;
+            checkbox.dataset.featName = feat.name;
+            checkbox.checked = isChecked;
+
+            if (isGranted) {
+                checkbox.dataset.granted = "true";
+                checkbox.disabled = true;
+            }
+
+            checkbox.addEventListener("change", () => {
+                if (checkbox.checked) {
+                    const beforeIds = [...selectedFeatIdsState];
+                    addFeatSelection(feat.id);
+
+                    const added =
+                        selectedFeatIdsState.length > beforeIds.length ||
+                        selectedFeatIdsState.filter(id => id === feat.id).length >
+                        beforeIds.filter(id => id === feat.id).length;
+
+                    if (!added) {
+                        checkbox.checked = false;
+                    }
+                } else {
+                    removeFeatSelection(feat.id);
+                }
+            });
+
+            const label = document.createElement("label");
+            label.className = "cc-compact-label";
+            const grantedLabel = getSpeciesGrantedFeatLabel(feat.id) || feat.name;
+            label.textContent = isGranted ? `${grantedLabel} (Granted)` : feat.name;
+
+            wrapper.appendChild(checkbox);
+            wrapper.appendChild(label);
+            return wrapper;
+        }
+
+        // Creates a checkbox for a talent
+        function createTalentCheckbox(talent, isChecked) {
+            const wrapper = document.createElement("div");
+            wrapper.className = "cc-compact-item";
+
+            const checkbox = document.createElement("input");
+            checkbox.type = "checkbox";
+            checkbox.className = "talent-checkbox";
+            checkbox.value = talent.id;
+            checkbox.dataset.talentName = talent.name;
+            checkbox.checked = isChecked;
+
+            checkbox.addEventListener("change", () => {
+                enforceTalentLimit(checkbox);
+                renderTalents(getSelectedTalentIds());
+            });
+
+            const label = document.createElement("label");
+            label.className = "cc-compact-label";
+            label.textContent = `${talent.name} [${talent.talentTree}]`;
+
+            wrapper.appendChild(checkbox);
+            wrapper.appendChild(label);
+            return wrapper;
+        }
+
+        // Creates +/- controls for repeatable force powers
+        function createRepeatableForcePowerControl(forcePower, count) {
+            const wrapper = document.createElement("div");
+            wrapper.className = "cc-compact-item";
+
+            const minusBtn = document.createElement("button");
+            minusBtn.type = "button";
+            minusBtn.textContent = "-";
+            minusBtn.className = "cc-btn cc-compact-btn";
+            minusBtn.disabled = count <= 0;
+            minusBtn.addEventListener("click", () => {
+                removeForcePowerSelection(forcePower.id);
+            });
+
+            const label = document.createElement("div");
+            label.className = "cc-compact-label";
+            const subtype = forcePower.powerSubtype ? ` | ${forcePower.powerSubtype}` : "";
+            const form = forcePower.form ? ` | ${forcePower.form}` : "";
+            label.textContent = `${forcePower.name} [${forcePower.powerType}${subtype}${form}]`;
+
+            const countBox = document.createElement("div");
+            countBox.className = "cc-compact-count";
+            countBox.textContent = String(count);
+
+            const plusBtn = document.createElement("button");
+            plusBtn.type = "button";
+            plusBtn.textContent = "+";
+            plusBtn.className = "cc-btn cc-compact-btn";
+            plusBtn.disabled = selectedForcePowerIdsState.length >= getForcePowerSlots();
+            plusBtn.addEventListener("click", () => {
+                addForcePowerSelection(forcePower.id);
+            });
+
+            wrapper.appendChild(minusBtn);
+            wrapper.appendChild(label);
+            wrapper.appendChild(countBox);
+            wrapper.appendChild(plusBtn);
+
+            return wrapper;
+        }
+
+        // Renders feat lists
+        function renderFeats() {
+            const selectedContainer = document.getElementById("selectedFeatsContainer");
+            const availableContainer = document.getElementById("availableFeatsContainer");
+            if (!selectedContainer || !availableContainer) return;
+
+            normalizeSelectedFeatState();
+            normalizeSpeciesChosenFeats();
+
+            selectedContainer.innerHTML = "";
+            availableContainer.innerHTML = "";
+
+            renderSpeciesChoiceFeatSelectors();
+
+            const speciesGrantedDetails = getGrantedSpeciesFeatDetails();
+            const speciesGrantedLabelsSeen = new Set();
+
+            speciesGrantedDetails.forEach(detail => {
+                const key = `${detail.id}|${detail.label}`;
+                if (speciesGrantedLabelsSeen.has(key)) return;
+                speciesGrantedLabelsSeen.add(key);
+
+                const wrapper = document.createElement("div");
+                wrapper.className = "cc-compact-item";
+
+                const checkbox = document.createElement("input");
+                checkbox.type = "checkbox";
+                checkbox.checked = true;
+                checkbox.disabled = true;
+
+                const label = document.createElement("label");
+                label.className = "cc-compact-label";
+                label.textContent = `${detail.label} (Granted)`;
+
+                wrapper.appendChild(checkbox);
+                wrapper.appendChild(label);
+                selectedContainer.appendChild(wrapper);
+            });
+
+            const classGrantedIds = getGrantedClassFeatIds();
+            const speciesGrantedIds = getGrantedSpeciesFeatIds();
+            const grantedIds = [...classGrantedIds, ...speciesGrantedIds];
+            const grantedSet = new Set(grantedIds);
+            const searchText = (document.getElementById("featSearch")?.value || "").toLowerCase();
+            const featSlotsFull = selectedFeatIdsState.length >= getTotalFeatSlots();
+
+            allFeats.forEach(feat => {
+                const speciesGrantedCount = getSpeciesGrantedFeatCount(feat.id);
+                const classGrantedCount = classGrantedIds.includes(feat.id) ? 1 : 0;
+                const isGranted = grantedSet.has(feat.id);
+                const userCount = getSelectedFeatCount(feat.id);
+                const totalCount = userCount + classGrantedCount + speciesGrantedCount;
+                const isSelected = totalCount > 0;
+                const isRepeatable = isRepeatableFeatName(feat.name);
+                const meetsPrereqs = meetsFeatPrerequisites(feat);
+                const isEligible = isGranted || meetsPrereqs;
+
+                if (!isSelected && !isEligible) return;
+                if (searchText && !feat.name.toLowerCase().includes(searchText)) return;
+
+                let element;
+
+                if (isRepeatable) {
+                    element = createRepeatableFeatControl(feat, totalCount, isGranted);
+                } else {
+                    element = createFeatCheckbox(feat, isSelected, isGranted);
+
+                    const checkbox = element.querySelector("input[type='checkbox']");
+                    if (checkbox && !isGranted && !isSelected) {
+                        checkbox.disabled = featSlotsFull || !meetsPrereqs;
+                    }
+                }
+
+                if (isSelected) {
+                    selectedContainer.appendChild(element);
+                } else {
+                    availableContainer.appendChild(element);
+                }
+            });
+
+            updateFeatCount();
+        }
+
+        // Renders talent lists
+        function renderTalents(selectedTalentIds = []) {
+            const selectedContainer = document.getElementById("selectedTalentsContainer");
+            const availableContainer = document.getElementById("availableTalentsContainer");
+            if (!selectedContainer || !availableContainer) return;
+
+            selectedContainer.innerHTML = "";
+            availableContainer.innerHTML = "";
+
+            const selectedSet = new Set(selectedTalentIds);
+            const searchText = (document.getElementById("talentSearch")?.value || "").toLowerCase();
+
+            allTalents.forEach(talent => {
+                const isSelected = selectedSet.has(talent.id);
+                const isEligible = meetsTalentPrerequisites(talent);
+
+                if (!isSelected && !isEligible) return;
+                if (searchText && !talent.name.toLowerCase().includes(searchText)) return;
+
+                const el = createTalentCheckbox(talent, isSelected);
+                if (isSelected) selectedContainer.appendChild(el);
+                else availableContainer.appendChild(el);
+            });
+
+            updateTalentCount();
+        }
+
+        // Renders force powers
+        function renderForcePowers() {
+            const selectedContainer = document.getElementById("selectedForcePowersContainer");
+            const availableContainer = document.getElementById("availableForcePowersContainer");
+            if (!selectedContainer || !availableContainer) return;
+
+            selectedContainer.innerHTML = "";
+            availableContainer.innerHTML = "";
+
+            if (!hasForceTraining()) {
+                selectedForcePowerIdsState = [];
+                availableContainer.textContent = "Requires Force Training feat.";
+                updateForcePowerCount();
+                return;
+            }
+
+            const maxForcePowers = getForcePowerSlots();
+            if (selectedForcePowerIdsState.length > maxForcePowers) {
+                selectedForcePowerIdsState = selectedForcePowerIdsState.slice(0, maxForcePowers);
+            }
+
+            const searchText = (document.getElementById("forcePowerSearch")?.value || "").toLowerCase();
+
+            allForcePowers.forEach(forcePower => {
+                if (searchText && !forcePower.name.toLowerCase().includes(searchText)) return;
+
+                const count = getSelectedForcePowerCount(forcePower.id);
+                const el = createRepeatableForcePowerControl(forcePower, count);
+
+                if (count > 0) selectedContainer.appendChild(el);
+                else availableContainer.appendChild(el);
+            });
+
+            updateForcePowerCount();
+        }
+
+        // Renders species traits
+        function renderTraits() {
+            const container = document.getElementById("traitsContainer");
+            if (!container) return;
+
+            container.innerHTML = "";
+
+            const species = getSelectedSpecies();
+            if (!species) {
+                container.textContent = "No species selected.";
+                return;
+            }
+
+            const traits = species.traits ?? [];
+            if (traits.length === 0) {
+                container.textContent = "No traits found for this species.";
+                return;
+            }
+
+            traits.forEach(trait => {
+                const wrapper = document.createElement("div");
+                wrapper.className = "cc-trait-item";
+
+                const title = document.createElement("div");
+                title.className = "cc-trait-title";
+                title.textContent = trait.title;
+
+                const description = document.createElement("div");
+                description.className = "cc-trait-desc";
+                description.textContent = trait.description;
+
+                wrapper.appendChild(title);
+                wrapper.appendChild(description);
+                container.appendChild(wrapper);
+            });
+        }
+
+        // Renders known and bonus languages
+        function renderLanguages(selectedBonusLanguages = []) {
+            const container = document.getElementById("languagesContainer");
+            if (!container) return;
+
+            container.innerHTML = "";
+
+            const species = getSelectedSpecies();
+            if (!species) return;
+
+            const finalInt = parseInt(document.getElementById("intelligenceFinal").value) || 0;
+            const intMod = Math.floor((finalInt - 10) / 2);
+
+            let bonusCount = Math.max(0, intMod);
+
+            const linguistCount = getLinguistCount();
+            if (linguistCount > 0) {
+                bonusCount += linguistCount * Math.max(1, 1 + intMod);
+            }
+
+            const currentLanguagesDiv = document.createElement("div");
+            currentLanguagesDiv.style.marginBottom = "10px";
+
+            const currentLanguagesLabel = document.createElement("div");
+            currentLanguagesLabel.textContent = "Current Languages:";
+            currentLanguagesLabel.style.fontWeight = "bold";
+
+            const currentLanguagesList = document.createElement("div");
+            currentLanguagesList.id = "currentLanguagesList";
+
+            currentLanguagesDiv.appendChild(currentLanguagesLabel);
+            currentLanguagesDiv.appendChild(currentLanguagesList);
+            container.appendChild(currentLanguagesDiv);
+
+            if (bonusCount > 0) {
+                const bonusDiv = document.createElement("div");
+
+                const bonusLabel = document.createElement("div");
+                bonusLabel.textContent = `Bonus Languages (${bonusCount}):`;
+                bonusLabel.style.fontWeight = "bold";
+                bonusLabel.style.marginTop = "6px";
+                bonusLabel.style.marginBottom = "4px";
+
+                bonusDiv.appendChild(bonusLabel);
+
+                const options = species.bonusLanguageChoices ?? [];
+
+                for (let i = 0; i < bonusCount; i++) {
+                    const select = document.createElement("select");
+                    select.classList.add("cc-control", "bonusLanguageSelect");
+                    select.style.display = "block";
+                    select.style.marginTop = "4px";
+                    select.style.width = "100%";
+
+                    const defaultOption = document.createElement("option");
+                    defaultOption.value = "";
+                    defaultOption.textContent = "Select Language";
+                    select.appendChild(defaultOption);
+
+                    options.forEach(lang => {
+                        const opt = document.createElement("option");
+                        opt.value = lang;
+                        opt.textContent = lang;
+                        select.appendChild(opt);
+                    });
+
+                    if (selectedBonusLanguages[i]) select.value = selectedBonusLanguages[i];
+
+                    select.addEventListener("change", () => {
+                        enforceUniqueBonusLanguages();
+                        updateCurrentLanguagesDisplay();
+                    });
+
+                    bonusDiv.appendChild(select);
+                }
+
+                container.appendChild(bonusDiv);
+            }
+
+            enforceUniqueBonusLanguages();
+            updateCurrentLanguagesDisplay();
+        }
+
+        // Updates the displayed language list
+        function updateCurrentLanguagesDisplay() {
+            const currentLanguagesList = document.getElementById("currentLanguagesList");
+            if (!currentLanguagesList) return;
+
+            const species = getSelectedSpecies();
+            if (!species) {
+                currentLanguagesList.textContent = "None";
+                return;
+            }
+
+            const speciesLanguages = species.languages ?? [];
+            const bonusLanguages = getSelectedBonusLanguages();
+
+            const allLanguages = [...speciesLanguages, ...bonusLanguages]
+                .filter((value, index, array) => value && array.indexOf(value) === index);
+
+            currentLanguagesList.textContent = allLanguages.length > 0 ? allLanguages.join(", ") : "None";
+        }
+
+        // Prevents duplicate bonus language selections
+        function enforceUniqueBonusLanguages() {
+            const selects = Array.from(document.querySelectorAll(".bonusLanguageSelect"));
+            const chosen = selects.map(s => s.value).filter(v => v);
+
+            selects.forEach(select => {
+                Array.from(select.options).forEach(option => {
+                    if (!option.value) return;
+                    option.disabled = chosen.includes(option.value) && select.value !== option.value;
+                });
+            });
+        }
+
+        // Gets selected bonus languages
+        function getSelectedBonusLanguages() {
+            return Array.from(document.querySelectorAll(".bonusLanguageSelect"))
+                .map(s => s.value)
+                .filter(v => v);
+        }
+
+        // Fills the form with an existing character's data
+        function populateCharacterForm(character) {
+            document.getElementById("characterName").value = character.name ?? "";
+            document.getElementById("speciesId").value = character.speciesId ?? "";
+            document.getElementById("heroicClassName").value = character.heroicClassName ?? "";
+            document.getElementById("level").value = character.level ?? 1;
+            document.getElementById("equipment").value = character.equipmentNotes ?? "";
+
+            const species = speciesCache.find(s => s.id === character.speciesId);
+            const speciesMods = {
+                strMod: species?.strMod ?? 0,
+                dexMod: species?.dexMod ?? 0,
+                conMod: species?.conMod ?? 0,
+                intMod: species?.intMod ?? 0,
+                wisMod: species?.wisMod ?? 0,
+                chaMod: species?.chaMod ?? 0
+            };
+
+            const a = character.abilityScores ?? {};
+            document.getElementById("strength").value = (a.strength ?? 0) - speciesMods.strMod;
+            document.getElementById("dexterity").value = (a.dexterity ?? 0) - speciesMods.dexMod;
+            document.getElementById("constitution").value = (a.constitution ?? 0) - speciesMods.conMod;
+            document.getElementById("intelligence").value = (a.intelligence ?? 0) - speciesMods.intMod;
+            document.getElementById("wisdom").value = (a.wisdom ?? 0) - speciesMods.wisMod;
+            document.getElementById("charisma").value = (a.charisma ?? 0) - speciesMods.chaMod;
+
+            const d = character.derivedStats ?? {};
+            document.getElementById("hitPoints").value = d.hitPoints ?? "";
+            document.getElementById("speed").value = d.speed ?? "";
+            document.getElementById("forcePoints").value = d.forcePoints ?? "";
+            document.getElementById("destinyPoints").value = d.destinyPoints ?? "";
+            document.getElementById("damageThreshold").value = d.damageThreshold ?? "";
+            document.getElementById("baseAttackBonus").value = d.baseAttackBonus ?? "";
+            document.getElementById("reflexDefense").value = d.reflexDefense ?? "";
+            document.getElementById("fortitudeDefense").value = d.fortitudeDefense ?? "";
+            document.getElementById("willDefense").value = d.willDefense ?? "";
+
+            renderFinalAbilityScores();
+
+            document.querySelectorAll("input[name='trainedSkillIds']").forEach(cb => {
+                cb.checked = (character.trainedSkillIds ?? []).includes(parseInt(cb.value));
+            });
+
+            selectedFeatIdsState = [...(character.featIds ?? [])];
+            selectedForcePowerIdsState = [...(character.forcePowerIds ?? [])];
+            speciesChosenFeatsState = [...(character.speciesChosenFeats ?? [])];
+
+            normalizeSelectedFeatState();
+            normalizeSpeciesChosenFeats();
+
+            enforceSkillRules();
+            renderSkillModifiers();
+            renderFeats();
+            renderTalents(character.talentIds ?? []);
+            renderForcePowers();
+            renderLanguages(character.bonusLanguages ?? []);
+            renderTraits();
+            calculateDerivedStatsPreview();
+        }
+
+        // Loads a character from the API
+        async function loadCharacter(id) {
+            try {
+                const response = await fetch(`/api/characters/${id}`);
+                if (!response.ok) throw new Error("Failed to load character.");
+
+                const character = await response.json();
+                populateCharacterForm(character);
+            } catch (error) {
+                console.error("Error loading character:", error);
+                alert("Could not load character.");
+            }
+        }
+
+        // Gets checked checkbox values by name
+        function getCheckedValues(name) {
+            return Array.from(document.querySelectorAll(`input[name='${name}']:checked`))
+                .map(cb => parseInt(cb.value));
+        }
+
+        // Hooks ability score inputs to recalculate everything
+        function wireAutoRecalc() {
+            ["strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma"]
+                .forEach(id => {
+                    const el = document.getElementById(id);
+                    if (el) el.addEventListener("input", recalculateAll);
+                });
+        }
+
+        // Defense bonuses by heroic class
+        function getClassDefenseBonuses(heroicClassName) {
+            switch ((heroicClassName || "").toLowerCase()) {
+                case "jedi": return { fortitude: 1, reflex: 1, will: 1 };
+                case "noble": return { fortitude: 0, reflex: 1, will: 2 };
+                case "scoundrel": return { fortitude: 0, reflex: 2, will: 1 };
+                case "scout": return { fortitude: 1, reflex: 2, will: 0 };
+                case "soldier": return { fortitude: 2, reflex: 1, will: 0 };
+                default: return { fortitude: 0, reflex: 0, will: 0 };
+            }
+        }
+
+        // Starting hit points by class
+        function getStartingHitPoints(heroicClassName) {
+            switch ((heroicClassName || "").toLowerCase()) {
+                case "jedi": return 30;
+                case "noble": return 18;
+                case "scoundrel": return 18;
+                case "scout": return 24;
+                case "soldier": return 30;
+                default: return 0;
+            }
+        }
+
+        // Base attack bonus by class
+        function getBaseAttackBonus(heroicClassName) {
+            switch ((heroicClassName || "").toLowerCase()) {
+                case "jedi":
+                case "soldier":
+                    return 1;
+                case "noble":
+                case "scoundrel":
+                case "scout":
+                    return 0;
+                default:
+                    return 0;
+            }
+        }
+
+        // Calculates and displays derived stats
+        function calculateDerivedStatsPreview() {
+            const finalScores = getFinalAbilityScores();
+            const mod = (score) => Math.floor((score - 10) / 2);
+
+            const level = parseInt(document.getElementById("level")?.value || "1", 10);
+            const heroicClassName = document.getElementById("heroicClassName")?.value || "";
+            const classBonus = getClassDefenseBonuses(heroicClassName);
+            const species = getSelectedSpecies();
+
+            const strMod = mod(finalScores.strength);
+            const dexMod = mod(finalScores.dexterity);
+            const conMod = mod(finalScores.constitution);
+            const wisMod = mod(finalScores.wisdom);
+
+            const reflex = 10 + level + dexMod + classBonus.reflex;
+            const fortitude = 10 + level + conMod + classBonus.fortitude;
+            const will = 10 + level + wisMod + classBonus.will;
+            const hitPoints = getStartingHitPoints(heroicClassName) + conMod;
+            const baseAttackBonus = getBaseAttackBonus(heroicClassName);
+
+            const meleeAttack = baseAttackBonus + strMod;
+            const rangedAttack = baseAttackBonus + dexMod;
+
+            const meleeText = meleeAttack >= 0 ? `+${meleeAttack}` : `${meleeAttack}`;
+            const rangedText = rangedAttack >= 0 ? `+${rangedAttack}` : `${rangedAttack}`;
+
+            const speed = species?.speed ?? 0;
+            const forcePoints = 5;
+            const destinyPoints = 1;
+
+            document.getElementById("reflexDefense").value = reflex;
+            document.getElementById("fortitudeDefense").value = fortitude;
+            document.getElementById("willDefense").value = will;
+            document.getElementById("damageThreshold").value = fortitude;
+            document.getElementById("hitPoints").value = hitPoints;
+            document.getElementById("baseAttackBonus").value = baseAttackBonus;
+            document.getElementById("attackOption").value = `Melee ${meleeText} / Ranged ${rangedText}`;
+            document.getElementById("speed").value = speed;
+            document.getElementById("forcePoints").value = forcePoints;
+            document.getElementById("destinyPoints").value = destinyPoints;
+        }
+
+        // Recalculates the whole form
+        function recalculateAll() {
+            normalizeSpeciesChosenFeats();
+            renderFinalAbilityScores();
+            calculateDerivedStatsPreview();
+            enforceSkillRules();
+            renderSkillModifiers();
+            renderLanguages(getSelectedBonusLanguages());
+            renderFeats();
+            renderTalents(getSelectedTalentIds());
+
+            const maxForcePowers = getForcePowerSlots();
+            if (selectedForcePowerIdsState.length > maxForcePowers) {
+                selectedForcePowerIdsState = selectedForcePowerIdsState.slice(0, maxForcePowers);
+            }
+
+            renderForcePowers();
+            renderTraits();
+        }
+
+        // Enforces talent selection limit
+        function enforceTalentLimit(changedCheckbox) {
+            const max = getTotalTalentSlots();
+            const selected = getSelectedTalentIds();
+            if (selected.length > max && changedCheckbox) changedCheckbox.checked = false;
+            updateTalentCount();
+        }
+
+        // Enforces force power selection limit
+        function enforceForcePowerLimit() {
+            if (selectedForcePowerIdsState.length > getForcePowerSlots()) {
+                selectedForcePowerIdsState = selectedForcePowerIdsState.slice(0, getForcePowerSlots());
+            }
+            updateForcePowerCount();
+        }
+
+        // Saves or updates the character
+        async function saveCharacter() {
+            try {
+                const characterId = document.getElementById("characterId").value;
+                const finalScores = getFinalAbilityScores();
+
+                const payload = {
+                    name: document.getElementById("characterName").value,
+                    speciesId: parseInt(document.getElementById("speciesId").value) || null,
+                    heroicClassName: document.getElementById("heroicClassName").value,
+                    level: 1,
+                    abilityScores: {
+                        strength: finalScores.strength,
+                        dexterity: finalScores.dexterity,
+                        constitution: finalScores.constitution,
+                        intelligence: finalScores.intelligence,
+                        wisdom: finalScores.wisdom,
+                        charisma: finalScores.charisma
+                    },
+                    trainedSkillIds: getCheckedValues("trainedSkillIds"),
+                    bonusLanguages: getSelectedBonusLanguages(),
+                    featIds: getUserSelectedFeatIds(),
+                    speciesChosenFeats: getSelectedSpeciesChosenFeats(),
+                    talentIds: getSelectedTalentIds(),
+                    forcePowerIds: getSelectedForcePowerIds(),
+                    equipmentNotes: document.getElementById("equipment").value
+                };
+
+                const isEdit = characterId && characterId !== "";
+                const url = isEdit ? `/api/characters/${characterId}` : "/api/characters";
+                const method = isEdit ? "PUT" : "POST";
+
+                const response = await fetch(url, {
+                    method: method,
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                    const error = await response.text();
+                    alert("Error: " + error);
+                    return;
+                }
+
+                const result = await response.json();
+
+                if (result.id) document.getElementById("characterId").value = result.id;
+
+                populateCharacterForm(result);
+                alert(isEdit ? "Character updated successfully!" : "Character saved successfully!");
+            } catch (error) {
+                console.error("Save failed:", error);
+                alert("Something went wrong while saving the character.");
+            }
+        }
+
+        // Deletes the current character
+        async function deleteCharacter() {
+            const characterId = document.getElementById("characterId").value;
+
+            if (!characterId) {
+                alert("No saved character is currently loaded.");
+                return;
+            }
+
+            const confirmed = confirm("Delete this character?");
+            if (!confirmed) return;
+
+            try {
+                const response = await fetch(`/api/characters/${characterId}`, {
+                    method: "DELETE"
+                });
+
+                if (!response.ok) {
+                    const error = await response.text();
+                    alert("Error: " + error);
+                    return;
+                }
+
+                alert("Character deleted.");
+                location.href = "/";
+            } catch (error) {
+                console.error("Delete failed:", error);
+                alert("Something went wrong while deleting the character.");
+            }
+        }
+
+        // Formats a modifier with + or -
+        function formatModifier(mod) {
+            return mod >= 0 ? `+${mod}` : `${mod}`;
+        }
+    </script>
+}
