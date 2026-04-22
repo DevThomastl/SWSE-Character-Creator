@@ -1,0 +1,142 @@
+{
+  "baseForcePoints": 5,
+  "forcePointsFormula": "5 + floor(characterLevel / 2)",
+  "heroicClasses": [
+    {
+      "name": "Jedi",
+      "baseHitPointsLevel1": 30,
+      "fortBonus": 1,
+      "refBonus": 1,
+      "willBonus": 1,
+      "trainedSkillsAtLevel1": 2,
+      "classSkills": [
+        "Acrobatics",
+        "Endurance",
+        "Initiative",
+        "Jump",
+        "Knowledge (all)",
+        "Mechanics",
+        "Perception",
+        "Pilot",
+        "Use the Force"
+      ],
+      "startingFeatNames": [
+        "Force Sensitivity",
+        "Weapon Proficiency (Lightsabers)",
+        "Weapon Proficiency (Simple Weapons)"
+      ],
+      "startingCreditsExpression": "3d4x100"
+    },
+    {
+      "name": "Noble",
+      "baseHitPointsLevel1": 18,
+      "fortBonus": 0,
+      "refBonus": 1,
+      "willBonus": 2,
+      "trainedSkillsAtLevel1": 6,
+      "classSkills": [
+        "Deception",
+        "Gather Information",
+        "Initiative",
+        "Knowledge (all)",
+        "Perception",
+        "Persuasion",
+        "Pilot",
+        "Ride",
+        "Treat Injury",
+        "Use Computer"
+      ],
+      "startingFeatNames": [
+        "Linguist",
+        "Weapon Proficiency (Pistols)",
+        "Weapon Proficiency (Simple Weapons)"
+      ],
+      "startingCreditsExpression": "3d4x400"
+    },
+    {
+      "name": "Scoundrel",
+      "baseHitPointsLevel1": 18,
+      "fortBonus": 0,
+      "refBonus": 2,
+      "willBonus": 1,
+      "trainedSkillsAtLevel1": 4,
+      "classSkills": [
+        "Acrobatics",
+        "Deception",
+        "Gather Information",
+        "Initiative",
+        "Knowledge (all)",
+        "Mechanics",
+        "Perception",
+        "Persuasion",
+        "Pilot",
+        "Stealth",
+        "Use Computer"
+      ],
+      "startingFeatNames": [
+        "Point-Blank Shot",
+        "Weapon Proficiency (Pistols)",
+        "Weapon Proficiency (Simple Weapons)"
+      ],
+      "startingCreditsExpression": "3d4x250"
+    },
+    {
+      "name": "Scout",
+      "baseHitPointsLevel1": 24,
+      "fortBonus": 1,
+      "refBonus": 2,
+      "willBonus": 0,
+      "trainedSkillsAtLevel1": 5,
+      "classSkills": [
+        "Climb",
+        "Endurance",
+        "Initiative",
+        "Jump",
+        "Knowledge (all)",
+        "Mechanics",
+        "Perception",
+        "Pilot",
+        "Ride",
+        "Stealth",
+        "Survival",
+        "Swim"
+      ],
+      "startingFeatNames": [
+        "Shake It Off",
+        "Weapon Proficiency (Pistols)",
+        "Weapon Proficiency (Rifles)",
+        "Weapon Proficiency (Simple Weapons)"
+      ],
+      "startingCreditsExpression": "3d4x250"
+    },
+    {
+      "name": "Soldier",
+      "baseHitPointsLevel1": 30,
+      "fortBonus": 2,
+      "refBonus": 1,
+      "willBonus": 0,
+      "trainedSkillsAtLevel1": 3,
+      "classSkills": [
+        "Climb",
+        "Endurance",
+        "Initiative",
+        "Jump",
+        "Knowledge (Tactics)",
+        "Mechanics",
+        "Perception",
+        "Pilot",
+        "Swim",
+        "Treat Injury",
+        "Use Computer"
+      ],
+      "startingFeatNames": [
+        "Armor Proficiency (Light)",
+        "Armor Proficiency (Medium)",
+        "Weapon Proficiency (Pistols)",
+        "Weapon Proficiency (Rifles)",
+        "Weapon Proficiency (Simple Weapons)"
+      ],
+      "startingCreditsExpression": "3d4x250"
+    }
+  ]
+}

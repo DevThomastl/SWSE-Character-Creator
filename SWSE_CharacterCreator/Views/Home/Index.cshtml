@@ -1,0 +1,90 @@
+﻿@{
+    ViewData["Title"] = "Load Saved Character";
+}
+
+<div class="load-page">
+    <div class="load-title-wrap">
+        <h1 class="load-page-title">Load Saved Character Page</h1>
+    </div>
+
+    <div class="load-outer-frame">
+        <div class="load-inner-panel">
+            <!-- saved characters list -->
+            <div id="savedCharacterList" class="saved-character-list">
+                <p class="load-status-text">Loading characters...</p>
+            </div>
+
+            <!-- Button to go to character creation page -->
+            <button id="createNewCharacterBtn"
+                    class="create-character-btn"
+                    type="button"
+                    onclick="location.href='/Character/Create'">
+                Create New Character
+                <span class="create-character-subtext">(Click to Start New Character)</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Run when the page is fully loaded
+        document.addEventListener("DOMContentLoaded", async () => {
+            await loadSavedCharacters();
+        });
+
+        // Pull saved characters from API and display them
+        async function loadSavedCharacters() {
+            try {
+                const response = await fetch("/api/characters");
+
+                if (!response.ok) {
+                    throw new Error("Failed to load saved characters.");
+                }
+
+                const characters = await response.json();
+                console.log("Saved characters:", characters);
+
+                const container = document.getElementById("savedCharacterList");
+
+
+                container.innerHTML = "";
+
+                // If no characters exist
+                if (!characters || characters.length === 0) {
+                    container.innerHTML = "<p class='load-status-text'>No saved characters found.</p>";
+                    return;
+                }
+
+                // Loop through characters and create buttons
+                characters.forEach(character => {
+                    const characterId = character.id ?? character.Id;
+                    const characterName = character.name ?? character.Name ?? "Unnamed Character";
+                    const speciesName = character.speciesName ?? character.SpeciesName ?? "";
+                    const heroicClassName = character.heroicClassName ?? character.HeroicClassName ?? "";
+
+                    const button = document.createElement("button");
+                    button.type = "button";
+                    button.className = "saved-character-btn";
+
+                    // Shows character name and its respective species
+                    button.textContent =
+                        `${characterName}${speciesName || heroicClassName ? ` (${speciesName} ${heroicClassName})` : ""}`.trim();
+
+                    // loads clicked character into character CSSStyleSheet (creation page)
+                    button.addEventListener("click", () => {
+                        location.href = `/Character/Create/${characterId}`;
+                    });
+
+                    container.appendChild(button);
+                });
+
+            } catch (error) {
+                console.error("Error loading saved characters:", error);
+
+                document.getElementById("savedCharacterList").innerHTML =
+                    "<p class='load-status-text'>Could not load saved characters.</p>";
+            }
+        }
+    </script>
+}

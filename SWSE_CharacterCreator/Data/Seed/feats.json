@@ -1,0 +1,2139 @@
+[
+  {
+    "name": "A Few Maneuvers",
+    "prerequisite": "Dodge, Vehicular Combat",
+    "description": "You can weave, juke, and roll to avoid enemy fire in the thick of combat.",
+    "id": 1
+  },
+  {
+    "name": "Accelerated Strike",
+    "prerequisite": "Base Attack Bonus 6",
+    "description": "Once per encounter, make a Full Attack as a Standard Action.",
+    "id": 2
+  },
+  {
+    "name": "Acrobatic Ally",
+    "prerequisite": "Dexterity 13, Strength 13, Trained in Acrobatics",
+    "description": "Hoist or toss an ally of your size or smaller up to 2 squares.",
+    "id": 3
+  },
+  {
+    "name": "Acrobatic Dodge",
+    "prerequisite": "Dexterity 13, Mobility, Skill Focus (Acrobatics)",
+    "description": "When a melee attack misses you, move into an adjacent square without provoking an Attack of Opportunity.",
+    "id": 4
+  },
+  {
+    "name": "Acrobatic Strike",
+    "prerequisite": "Trained in Acrobatics",
+    "description": "Gain 2 competence bonus on next attack against opponent you Tumble past.",
+    "id": 5
+  },
+  {
+    "name": "Adaptable Talent",
+    "prerequisite": null,
+    "description": "Temporarily gain access to an additional Talent.",
+    "id": 6
+  },
+  {
+    "name": "Advantageous Attack",
+    "prerequisite": "Base Attack Bonus 1",
+    "description": "Add full Heroic Level to attacks against slower enemies.",
+    "id": 7
+  },
+  {
+    "name": "Advantageous Cover",
+    "prerequisite": "Trained in Stealth",
+    "description": "Gain additional benefits from Cover.",
+    "id": 8
+  },
+  {
+    "name": "Aiming Accuracy",
+    "prerequisite": "Droid, Point-Blank Shot, Precise Shot",
+    "description": "After aiming as a Full-Round Action, gain a 5 on next weapon attack.",
+    "id": 9
+  },
+  {
+    "name": "Ample Foraging",
+    "prerequisite": "Ewok",
+    "description": "Grant a bonus to allies' Fortitude Defense by foraging.",
+    "id": 10
+  },
+  {
+    "name": "Angled Throw",
+    "prerequisite": "Dexterity 13",
+    "description": "Ignore Cover with Grenades and grenadelike weapons.",
+    "id": 11
+  },
+  {
+    "name": "Anointed Hunter",
+    "prerequisite": "Nelvaanian",
+    "description": "Move 2 or more squares and gain a 1 bonus on attacks with Thrown Weapons until the end of your turn.",
+    "id": 12
+  },
+  {
+    "name": "Aquatic Specialists",
+    "prerequisite": "Trained in Swim",
+    "description": "Gain bonuses on Swim checks when near allies.",
+    "id": 13
+  },
+  {
+    "name": "Armor Proficiency (Heavy)",
+    "prerequisite": "Armor Proficiency (Light), Armor Proficiency (Medium)",
+    "description": "No penalty on attacks and no Armor Check Penalty while wearing Light Armor, Medium Armor, or Heavy Armor.",
+    "id": 14
+  },
+  {
+    "name": "Armor Proficiency (Light)",
+    "prerequisite": null,
+    "description": "No penalty on attacks and no Armor Check Penalty while wearing Light Armor.",
+    "id": 15
+  },
+  {
+    "name": "Armor Proficiency (Medium)",
+    "prerequisite": "Armor Proficiency (Light)",
+    "description": "No penalty on attacks and no Armor Check Penalty while wearing Light Armor or Medium Armor.",
+    "id": 16
+  },
+  {
+    "name": "Artillery Shot",
+    "prerequisite": null,
+    "description": "You increase the efficiency of your Burst and Splash weapon attacks.",
+    "id": 17
+  },
+  {
+    "name": "Ascension Specialists",
+    "prerequisite": "Trained in Climb",
+    "description": "Gain bonuses on Climb checks when near allies.",
+    "id": 18
+  },
+  {
+    "name": "Assured Attack",
+    "prerequisite": null,
+    "description": "Reroll the lowest damage die when making a successful attack.",
+    "id": 19
+  },
+  {
+    "name": "Attack Combo (Fire and Strike)",
+    "prerequisite": "Attack Combo (Melee), Attack Combo (Ranged), Base Attack Bonus 9",
+    "description": "Deal 1 die of damage on Unarmed, melee, or ranged attacks until the end of your next turn after hitting an enemy with two Unarmed, melee, or ranged attacks.",
+    "id": 20
+  },
+  {
+    "name": "Attack Combo (Melee)",
+    "prerequisite": "Base Attack Bonus 3",
+    "description": "Deal 1 die of damage on Unarmed or melee attacks until the end of your next turn after hitting an enemy with two Unarmed or melee attacks.",
+    "id": 21
+  },
+  {
+    "name": "Attack Combo (Ranged)",
+    "prerequisite": "Base Attack Bonus 3",
+    "description": "Deal 1 die of damage on ranged attacks until the end of your next turn after hitting an enemy with two ranged attacks.",
+    "id": 22
+  },
+  {
+    "name": "Autofire Assault",
+    "prerequisite": "Weapon Focus (Chosen Weapon)",
+    "description": "Decrease penalty on Autofire attack and inflict extra damage when sustaining fire in the same squares in consecutive rounds.",
+    "id": 23
+  },
+  {
+    "name": "Autofire Sweep",
+    "prerequisite": "Weapon Focus (Chosen Weapon)",
+    "description": "Sweep a wide area while using Autofire mode.",
+    "id": 24
+  },
+  {
+    "name": "Bad Feeling",
+    "prerequisite": null,
+    "description": "Always have a Move Action during the Surprise Round.",
+    "id": 25
+  },
+  {
+    "name": "Bantha Herder",
+    "prerequisite": "Base Attack Bonus 1",
+    "description": "Move a target damaged by your attack.",
+    "id": 26
+  },
+  {
+    "name": "Bantha Rush",
+    "prerequisite": "Strength 13, Base Attack Bonus 1",
+    "description": "Push opponent 1 square after making a successful melee attack.",
+    "id": 27
+  },
+  {
+    "name": "Battering Attack",
+    "prerequisite": "Bantha Rush, Trip",
+    "description": "Knock an opponent Prone when you use Bantha Rush.",
+    "id": 28
+  },
+  {
+    "name": "Binary Mind",
+    "prerequisite": "Cerean",
+    "description": "Enemies must roll twice, keeping the lower result, on Mind-Affecting effects.",
+    "id": 29
+  },
+  {
+    "name": "Biotech Specialist",
+    "prerequisite": "Trained in Mechanics",
+    "description": "Make custom modifications to Yuuzhan Vong Biotech.",
+    "id": 30
+  },
+  {
+    "name": "Biotech Surgery",
+    "prerequisite": "Trained in Treat Injury",
+    "description": "Install a Bio-Implant on a living being.",
+    "id": 31
+  },
+  {
+    "name": "Blaster Barrage",
+    "prerequisite": "Coordinated Attack",
+    "description": "Automatically Aid Another when using Autofire attacks.",
+    "id": 32
+  },
+  {
+    "name": "Bone Crusher",
+    "prerequisite": "Crush, Pin",
+    "description": "Move damaged Grappled opponent -1 step on the Condition Track.",
+    "id": 33
+  },
+  {
+    "name": "Bothan Will",
+    "prerequisite": "Bothan",
+    "description": "Gain a bonus to Will Defense when an enemy fails to overcome your iron will.",
+    "id": 34
+  },
+  {
+    "name": "Bowcaster Marksman",
+    "prerequisite": "Wookiee",
+    "description": "Gain a bonus to damage rolls when you spend a Force Point on a Bowcaster attack.",
+    "id": 35
+  },
+  {
+    "name": "Brilliant Defense",
+    "prerequisite": "Intelligence 13",
+    "description": "Add your Intelligence bonus to your Reflex Defense as a Reaction.",
+    "id": 36
+  },
+  {
+    "name": "Brink of Death",
+    "prerequisite": null,
+    "description": "Attacks that would kill your enemy reduces them to 0 Hit Points instead.",
+    "id": 37
+  },
+  {
+    "name": "Burst Fire",
+    "prerequisite": "Proficient with Heavy Weapons",
+    "description": "Take a -5 penalty on an Autofire attack to gain 2 dice of damage.",
+    "id": 38
+  },
+  {
+    "name": "Burst of Speed",
+    "prerequisite": "Trained in Endurance",
+    "description": "Move Speed twice as Move Action.",
+    "id": 39
+  },
+  {
+    "name": "Careful Shot",
+    "prerequisite": "Point-Blank Shot, Base Attack Bonus 2",
+    "description": "If you Aim, gain 1 bonus on the attack roll.",
+    "id": 40
+  },
+  {
+    "name": "Channel Rage",
+    "prerequisite": "Rage Species Trait",
+    "description": "Instead of Raging, gain 5 to Will Defense.",
+    "id": 41
+  },
+  {
+    "name": "Charging Fire",
+    "prerequisite": "Base Attack Bonus 4",
+    "description": "Make ranged attack at end of a Charge; take a -2 penalty to Reflex Defense.",
+    "id": 42
+  },
+  {
+    "name": "Clawed Subspecies",
+    "prerequisite": "Quarren",
+    "description": "Deal damage with sharp claws on Unarmed attacks.",
+    "id": 43
+  },
+  {
+    "name": "Cleave",
+    "prerequisite": "Strength 13, Power Attack",
+    "description": "Extra melee attack after dropping target.",
+    "id": 44
+  },
+  {
+    "name": "Close Combat Escape",
+    "prerequisite": "Trained in Acrobatics",
+    "description": "Escape Grapple and attack.",
+    "id": 45
+  },
+  {
+    "name": "Collateral Damage",
+    "prerequisite": "Rapid Shot, Base Attack Bonus 6",
+    "description": "Gain extra attack upon hitting the first target.",
+    "id": 46
+  },
+  {
+    "name": "Combat Reflexes",
+    "prerequisite": null,
+    "description": "Gain additional Attacks of Opportunity.",
+    "id": 47
+  },
+  {
+    "name": "Combat Trickery",
+    "prerequisite": "Trained in Deception",
+    "description": "Spend two Swift Actions to make Deception check to make enemy Flat-Footed.",
+    "id": 48
+  },
+  {
+    "name": "Conditioning",
+    "prerequisite": "Strength 13, Constitution 13",
+    "description": "Reroll Strength and Constitution based Skill Checks.",
+    "id": 49
+  },
+  {
+    "name": "Confident Success",
+    "prerequisite": "Bothan",
+    "description": "Gain a Force Point when you successfully Learn Secret Information.",
+    "id": 50
+  },
+  {
+    "name": "Controlled Rage",
+    "prerequisite": "Rage Species Trait",
+    "description": "Enter Rage as a Free Action, and end Rage at will.",
+    "id": 51
+  },
+  {
+    "name": "Coordinated Attack",
+    "prerequisite": "Base Attack Bonus 2",
+    "description": "Automatic success with Aid Another action at Point-Blank Range.",
+    "id": 52
+  },
+  {
+    "name": "Coordinated Barrage",
+    "prerequisite": "Coordinated Attack, Base Attack Bonus 5",
+    "description": "Allow an ally to deal more damage when you aid their attack.",
+    "id": 53
+  },
+  {
+    "name": "Cornered",
+    "prerequisite": null,
+    "description": "When unable to Withdraw, 2 on attacks.",
+    "id": 54
+  },
+  {
+    "name": "Covert Operatives",
+    "prerequisite": "Trained in Stealth",
+    "description": "Gain bonuses on Stealth checks when near allies.",
+    "id": 55
+  },
+  {
+    "name": "Critical Strike",
+    "prerequisite": "Base Attack Bonus 9, Weapon Focus (Chosen Weapon)",
+    "description": "Increase critical threat range of an attack.",
+    "id": 56
+  },
+  {
+    "name": "Crossfire",
+    "prerequisite": "Point-Blank Shot, Precise Shot, Base Attack Bonus 6",
+    "description": "Redirect missed attacks against Soft Cover.",
+    "id": 57
+  },
+  {
+    "name": "Crush",
+    "prerequisite": "Pin, Base Attack Bonus 1",
+    "description": "Deal Unarmed or Claw damage to a Pinned opponent.",
+    "id": 58
+  },
+  {
+    "name": "Cunning Attack",
+    "prerequisite": null,
+    "description": "Gain 2 bonus on attack rolls against Flat-Footed enemies.",
+    "id": 59
+  },
+  {
+    "name": "Cut the Red Tape",
+    "prerequisite": "Trained in Knowledge (Bureaucracy)",
+    "description": "Use Knowledge (Bureaucracy) in place of Gather Information.",
+    "id": 60
+  },
+  {
+    "name": "Cybernetic Surgery",
+    "prerequisite": "Trained in Treat Injury",
+    "description": "Install a Cybernetic Prosthesis onto a living being.",
+    "id": 61
+  },
+  {
+    "name": "Damage Conversion",
+    "prerequisite": "Droid, Dexterity 13",
+    "description": "Take additional Hit Point damage instead of moving down the Condition Track.",
+    "id": 62
+  },
+  {
+    "name": "Darkness Dweller",
+    "prerequisite": "Sullustan",
+    "description": "Impose a penalty to Stealth checks made when close to you.",
+    "id": 63
+  },
+  {
+    "name": "Deadeye",
+    "prerequisite": "Point-Blank Shot, Precise Shot, Base Attack Bonus 4",
+    "description": "If you Aim, deal extra damage.",
+    "id": 64
+  },
+  {
+    "name": "Deadly Sniper",
+    "prerequisite": "Sniper, Trained in Stealth, Base Attack Bonus 9",
+    "description": "Gain 2 bonus on your ranged attack roll and deal 1 die of damage.",
+    "id": 65
+  },
+  {
+    "name": "Deceptive Drop",
+    "prerequisite": "Trained in Initiative",
+    "description": "Flat-Footed targets knocked Prone on Surprise Round.",
+    "id": 66
+  },
+  {
+    "name": "Deep Sight",
+    "prerequisite": "Quarren",
+    "description": "Gain Darkvision and ignore Total Concealment from darkness.",
+    "id": 67
+  },
+  {
+    "name": "Deft Charge",
+    "prerequisite": null,
+    "description": "Take Swift Actions, Reactions, and Free Actions after you Charge before your turn ends.",
+    "id": 68
+  },
+  {
+    "name": "Demoralizing Strike",
+    "prerequisite": "Charisma 13",
+    "description": "Make an Intimidation check when you deal damage with an Attack of Opportunity.",
+    "id": 69
+  },
+  {
+    "name": "Desperate Gambit",
+    "prerequisite": null,
+    "description": "Reroll missed attack by taking a penalty to Reflex Defense.",
+    "id": 70
+  },
+  {
+    "name": "Destructive Force",
+    "prerequisite": null,
+    "description": "Deal damage to adjacent targets when you damage objects and Vehicles.",
+    "id": 71
+  },
+  {
+    "name": "Devastating Bellow",
+    "prerequisite": "Ithorian",
+    "description": "Deal more damage with your Bellow attacks.",
+    "id": 72
+  },
+  {
+    "name": "Disabler",
+    "prerequisite": null,
+    "description": "Gain benefits when using certain Ion weapons.",
+    "id": 73
+  },
+  {
+    "name": "Disarming Charm",
+    "prerequisite": "Sullustan",
+    "description": "Gain a bonus to Skill Checks on targets whose Attitude you have improved.",
+    "id": 74
+  },
+  {
+    "name": "Distracting Droid",
+    "prerequisite": "Droid",
+    "description": "Attempt to deny enemies within 6 squares their next Move Action, with a chance to make enemies Flat-Footed.",
+    "id": 75
+  },
+  {
+    "name": "Disturbing Presence",
+    "prerequisite": "Trained in Deception",
+    "description": "Make a Deception check to move through a Threatened Area without provoking Attacks of Opportunity.",
+    "id": 76
+  },
+  {
+    "name": "Dive for Cover",
+    "prerequisite": "Trained in Jump",
+    "description": "Jump for Cover as a Reaction.",
+    "id": 77
+  },
+  {
+    "name": "Dodge",
+    "prerequisite": "Dexterity 13",
+    "description": "Gain a 1 dodge bonus to Reflex Defense against a selected target.",
+    "id": 78
+  },
+  {
+    "name": "Double Attack",
+    "prerequisite": "Base Attack Bonus 6",
+    "description": "Make an extra attack with chosen weapon during Full Attack, -5 penalty to all attacks.",
+    "id": 79
+  },
+  {
+    "name": "Dreadful Countenance",
+    "prerequisite": "Charisma 13, Member of The Sith",
+    "description": "Marked as Sith, your appearance inspires awe, dread, and fear in all who view it.",
+    "id": 80
+  },
+  {
+    "name": "Dreadful Rage",
+    "prerequisite": "Rage Species Trait, Base Attack Bonus 1",
+    "description": "Rage bonus to attacks and damage increases to 4.",
+    "id": 81
+  },
+  {
+    "name": "Droid Focus",
+    "prerequisite": "Trained in Mechanics and Use Computer",
+    "description": "1 bonus to certain Skills and Defenses when dealing with a selected class of Droid.",
+    "id": 82
+  },
+  {
+    "name": "Droid Hunter",
+    "prerequisite": null,
+    "description": "Deal 2 damage to Droid enemies, or 4 when using an Ion Weapon.",
+    "id": 83
+  },
+  {
+    "name": "Droid Shield Mastery",
+    "prerequisite": "Droid, Shield Generator (Droid Accessory)",
+    "description": "Automatically Recharge Shields in two Swift Actions.",
+    "id": 84
+  },
+  {
+    "name": "Droidcraft",
+    "prerequisite": "Trained in Mechanics",
+    "description": "Repair a Droid in 10 minutes instead of 1 hour.",
+    "id": 85
+  },
+  {
+    "name": "Dual Weapon Mastery I",
+    "prerequisite": "Dexterity 13, Base Attack Bonus 1",
+    "description": "Take a -5 penalty on attacks when attacking with two weapons, or both ends of a double weapon.",
+    "id": 86
+  },
+  {
+    "name": "Dual Weapon Mastery II",
+    "prerequisite": "Dexterity 15, Base Attack Bonus 6, Dual Weapon Mastery I",
+    "description": "Take a -2 penalty on attacks when attacking with two weapons, or both ends of a double weapon.",
+    "id": 87
+  },
+  {
+    "name": "Dual Weapon Mastery III",
+    "prerequisite": "Dexterity 17, Base Attack Bonus 11, Dual Weapon Mastery I, Dual Weapon Mastery II",
+    "description": "Take no penalty on attacks when attacking with two weapons, or both ends of a double weapon.",
+    "id": 88
+  },
+  {
+    "name": "Duck and Cover",
+    "prerequisite": "Trained in Stealth",
+    "description": "You dive for Cover when you avoid Area Attacks.",
+    "id": 89
+  },
+  {
+    "name": "Echani Training",
+    "prerequisite": "Dexterity 13, Martial Arts I",
+    "description": "Double Strength bonus to Unarmed damage. Knock target Prone.",
+    "id": 90
+  },
+
+  {
+    "name": "Elder's Knowledge",
+    "prerequisite": "Skill Focus (Knowledge (Social Sciences)) or Skill Focus (Knowledge (Galactic Lore))",
+    "description": "Substitute a Knowledge (Social Sciences) or Knowledge (Galactic Lore) skill check for a Wisdom-related Skill Check.",
+    "id": 92
+  },
+  {
+    "name": "Erratic Target",
+    "prerequisite": "Droid with Hovering or Flying Locomotion, Dexterity 13, Dodge",
+    "description": "Reduce Speed by up to 2 squares to increase dodge bonus to Reflex Defense.",
+    "id": 93
+  },
+  {
+    "name": "Exotic Weapon Proficiency",
+    "prerequisite": "Base Attack Bonus 1",
+    "description": "Wield an Exotic Weapon without penalty.",
+    "id": 94
+  },
+  {
+    "name": "Experienced Medic",
+    "prerequisite": "Trained in Treat Injury",
+    "description": "Perform Surgery on multiple creatures simultaneously.",
+    "id": 95
+  },
+  {
+    "name": "Expert Briber",
+    "prerequisite": "Charisma 13",
+    "description": "Reduce the time and cost of Bribery attempts.",
+    "id": 96
+  },
+  {
+    "name": "Expert Droid Repair",
+    "prerequisite": "Trained in Mechanics",
+    "description": "Repair multiple Droids simultaneously.",
+    "id": 97
+  },
+  {
+    "name": "Extra Rage",
+    "prerequisite": "Rage Species Trait",
+    "description": "Rage one additional time per day.",
+    "id": 98
+  },
+  {
+    "name": "Extra Second Wind",
+    "prerequisite": "Trained in Endurance",
+    "description": "Gain an additional Second Wind per day.",
+    "id": 99
+  },
+  {
+    "name": "Far Shot",
+    "prerequisite": "Point-Blank Shot",
+    "description": "Range penalties for Short-, Medium-, and Long-ranged attacks are reduced.",
+    "id": 100
+  },
+  {
+    "name": "Fast Surge",
+    "prerequisite": null,
+    "description": "Catch a Second Wind as a Free Action on your turn.",
+    "id": 101
+  },
+  {
+    "name": "Fast Swimmer",
+    "prerequisite": "Mon Calamari",
+    "description": "Gain a bonus to your Swim Speed.",
+    "id": 102
+  },
+  {
+    "name": "Fatal Hit",
+    "prerequisite": "Strength 13, Dexterity 13",
+    "description": "You automatically kill an enemy that you reduce to 0 Hit Points, and you can perform a Coup de Grace as a Standard Action.",
+    "id": 103
+  },
+  {
+    "name": "Feat of Strength",
+    "prerequisite": "Strength 15",
+    "description": "Take 10 or Take 20 on one Strength check or related Skill Check per encounter.",
+    "id": 104
+  },
+  {
+    "name": "Fight Through Pain",
+    "prerequisite": null,
+    "description": "Use your Will Defense to determine your Damage Threshold.",
+    "id": 105
+  },
+  {
+    "name": "Flash and Clear",
+    "prerequisite": null,
+    "description": "Gain Concealment against a target you damage with a Burst or Splash weapon.",
+    "id": 106
+  },
+  {
+    "name": "Flawless Pilot",
+    "prerequisite": "Duros",
+    "description": "Reroll Pilot checks, always keeping the better result.",
+    "id": 107
+  },
+  {
+    "name": "Fleet-Footed",
+    "prerequisite": "Running Attack",
+    "description": "2 Speed when making a Running Attack.",
+    "id": 108
+  },
+  {
+    "name": "Flood of Fire",
+    "prerequisite": null,
+    "description": "Ignore enemies' dodge and deflection bonus to Reflex Defense when making Area Attacks with a weapon set on Autofire.",
+    "id": 109
+  },
+  {
+    "name": "Flurry",
+    "prerequisite": "Dexterity 13",
+    "description": "Increases attack bonus, with penalties to Reflex Defense.",
+    "id": 110
+  },
+  {
+    "name": "Flèche",
+    "prerequisite": "Base Attack Bonus 1",
+    "description": "When Charging, turn any natural attack roll of 17 into a Critical Hit.",
+    "id": 111
+  },
+  {
+    "name": "Focused Rage",
+    "prerequisite": "Rage Species Trait, Controlled Rage",
+    "description": "When Raging, use Skills that require patience at a -5 penalty.",
+    "id": 112
+  },
+  {
+    "name": "Follow Through",
+    "prerequisite": null,
+    "description": "Move when you reduce an enemy to 0 Hit Points.",
+    "id": 113
+  },
+  {
+    "name": "Force Boon",
+    "prerequisite": "Force Sensitivity",
+    "description": "Gain three additional Force Points at each level.",
+    "id": 114
+  },
+  {
+    "name": "Force of Personality",
+    "prerequisite": "Charisma 13",
+    "description": "Use Wisdom or Charisma to determine Will Defense.",
+    "id": 115
+  },
+  {
+    "name": "Force Readiness",
+    "prerequisite": null,
+    "description": "Spend Force Points even if it is not your turn.",
+    "id": 116
+  },
+  {
+    "name": "Force Regimen Mastery",
+    "prerequisite": "Force Sensitivity, Trained in Use the Force",
+    "description": "Learn a number of Force Regimens equal to 1  your Wisdom modifier (minimum of 1).",
+    "id": 117
+  },
+  {
+    "name": "Force Sensitivity",
+    "prerequisite": "Non-Droid",
+    "description": "You can make Use the Force checks and gain access to Force Talents.",
+    "id": 118
+  },
+  {
+    "name": "Force Training",
+    "prerequisite": "Force Sensitivity",
+    "description": "Learn a number of Force Powers equal to 1  your Wisdom modifier (minimum 1).",
+    "id": 119
+  },
+  {
+    "name": "Forceful Blast",
+    "prerequisite": "Weapon Proficiency (Simple Weapons), Base Attack Bonus 1",
+    "description": "Move a target damaged by your Grenade attack.",
+    "id": 120
+  },
+  {
+    "name": "Forceful Recovery",
+    "prerequisite": "Force Sensitivity, Force Training",
+    "description": "Regain one Force Power when you catch a Second Wind.",
+    "id": 121
+  },
+  {
+    "name": "Forest Stalker",
+    "prerequisite": "Ewok",
+    "description": "Reroll Stealth checks, always keeping the better result.",
+    "id": 122
+  },
+  {
+    "name": "Fortifying Recovery",
+    "prerequisite": "Constitution 13",
+    "description": "Gain Bonus Hit Points when you Recover.",
+    "id": 123
+  },
+  {
+    "name": "Friends in Low Places",
+    "prerequisite": "Trained in Gather Information",
+    "description": "Reduce Black Market cost multiplier for Restricted Items by 1.",
+    "id": 124
+  },
+  {
+    "name": "Frightening Cleave",
+    "prerequisite": "Strength 13, Cleave, Power Attack, Base Attack Bonus 4",
+    "description": "When you use the Cleave feat, each enemy within 6 squares and line of sight takes a penalty to Reflex Defense, Skill Checks, and attack rolls against you.",
+    "id": 125
+  },
+  {
+    "name": "Fringe Benefits",
+    "prerequisite": "Rodian",
+    "description": "Reduce the cost multiplier of goods bought on the Black Market.",
+    "id": 126
+  },
+  {
+    "name": "Galactic Alliance Military Training",
+    "prerequisite": null,
+    "description": "You do not move down the Condition Track the first time an attack exceeds your Damage Threshold.",
+    "id": 127
+  },
+  {
+    "name": "Gearhead",
+    "prerequisite": null,
+    "description": "Make Mechanics and Use Computer checks quickly.",
+    "id": 128
+  },
+  {
+    "name": "Grab Back",
+    "prerequisite": "Dexterity 13",
+    "description": "As a Reaction, make a Grab or Grapple attack following a failed Grab or Grapple attack made against you.",
+    "id": 129
+  },
+  {
+    "name": "Grand Army of the Republic Training",
+    "prerequisite": "Armor Proficiency (Light)",
+    "description": "Apply your armor's Equipment bonus to your Will Defense.",
+    "id": 130
+  },
+  {
+    "name": "Grapple Resistance",
+    "prerequisite": null,
+    "description": "Gain a 5 bonus to resist Grab and Grapple attacks.",
+    "id": 131
+  },
+  {
+    "name": "Grazing Shot",
+    "prerequisite": "Point-Blank Shot",
+    "description": "Strike two targets in direct line of sight, dealing half damage to each.",
+    "id": 132
+  },
+  {
+    "name": "Great Cleave",
+    "prerequisite": "Strength 13, Power Attack, Cleave, Base Attack Bonus 4",
+    "description": "No limit to Cleave attacks each round.",
+    "id": 133
+  },
+  {
+    "name": "Gungan Weapon Master",
+    "prerequisite": "Gungan",
+    "description": "Increase the die type when adding Force Points to attacks with an Atlatl or Cesta.",
+    "id": 134
+  },
+  {
+    "name": "Gunnery Specialist",
+    "prerequisite": "Base Attack Bonus 1",
+    "description": "Reroll an attack made with a Vehicle Weapon.",
+    "id": 135
+  },
+  {
+    "name": "Halt",
+    "prerequisite": "Trip, Weapon Focus (Chosen Weapon), Base Attack Bonus 8",
+    "description": "Knock an enemy Prone after a successful Attack of Opportunity, immediately end the target's remaining Actions when also exceeding its Damage Threshold.",
+    "id": 136
+  },
+  {
+    "name": "Hasty Modification",
+    "prerequisite": "Tech Specialist",
+    "description": "Swap one Trait for another Trait.",
+    "id": 137
+  },
+  {
+    "name": "Heavy Hitter",
+    "prerequisite": "Weapon Focus (Heavy Weapons)",
+    "description": "Add 1 point of damage for every 5 points rolled above the target's Reflex Defense, plus additional benefits when you exceed the target's Damage Threshold.",
+    "id": 138
+  },
+  {
+    "name": "Hideous Visage",
+    "prerequisite": "Shapeshift Species Trait",
+    "description": "Deception check to push opponent away.",
+    "id": 139
+  },
+  {
+    "name": "Hijkata Training",
+    "prerequisite": "Combat Reflexes, Martial Arts I",
+    "description": "Make counterattacks. Impose penalties to enemy attacks.",
+    "id": 140
+  },
+  {
+    "name": "Hobbling Strike",
+    "prerequisite": "Sneak Attack or Rapid Shot or Rapid Strike",
+    "description": "Reduce the target's Speed instead of dealing damage.",
+    "id": 141
+  },
+  {
+    "name": "Hold Together",
+    "prerequisite": "Trained in Mechanics",
+    "description": "Delay the damage caused to a Vehicle until the end of the round.",
+    "id": 142
+  },
+  {
+    "name": "Hunter's Instincts",
+    "prerequisite": "Rodian",
+    "description": "Reroll Perception checks, always keeping the better result.",
+    "id": 143
+  },
+  {
+    "name": "Hyperblazer",
+    "prerequisite": "Trained in Use Computer",
+    "description": "Cut all calculation time and Use Computer penalties by half when making Use Computer checks for Astrogation in the Hyperspace tangle, Reduce Hyperspace mapping time by half.",
+    "id": 144
+  },
+  {
+    "name": "Imperceptible Liar",
+    "prerequisite": "Twi'lek",
+    "description": "Increase the die type when adding Force Points to a Deception check.",
+    "id": 145
+  },
+  {
+    "name": "Imperial Military Training",
+    "prerequisite": null,
+    "description": "Negate one Mind-Affecting effect per encounter.",
+    "id": 146
+  },
+  {
+    "name": "Impersonate",
+    "prerequisite": "Shapeshift Species Trait, Skill Focus (Deception)",
+    "description": "Shapeshift to impersonate a specific person.",
+    "id": 147
+  },
+  {
+    "name": "Impetuous Move",
+    "prerequisite": "Constitution 13",
+    "description": "Move when you catch a Second Wind.",
+    "id": 148
+  },
+  {
+    "name": "Implant Training",
+    "prerequisite": "Possess an Implant",
+    "description": "You don't move additional steps down the Condition Track due to your Implants.",
+    "id": 149
+  },
+  {
+    "name": "Improved Bantha Rush",
+    "prerequisite": "Strength 15, Bantha Rush, Base Attack Bonus 1",
+    "description": "Push foes away a number of squares equal to Strength modifier.",
+    "id": 150
+  },
+  {
+    "name": "Improved Charge",
+    "prerequisite": "Dexterity 13, Dodge, Mobility",
+    "description": "You can Charge without moving in a straight line.",
+    "id": 151
+  },
+  {
+    "name": "Improved Damage Threshold",
+    "prerequisite": null,
+    "description": "Damage Threshold increases by 5 points.",
+    "id": 152
+  },
+  {
+    "name": "Improved Defenses",
+    "prerequisite": null,
+    "description": "Gain 1 bonus to all Defenses.",
+    "id": 153
+  },
+  {
+    "name": "Improved Disarm",
+    "prerequisite": "Intelligence 13, Melee Defense",
+    "description": "Gain 5 bonus on melee attacks to Disarm an opponent.",
+    "id": 154
+  },
+  {
+    "name": "Improved Opportunistic Trickery",
+    "prerequisite": "Combat Reflexes, Opportunistic Trickery",
+    "description": "Sacrifice Attack of Opportunity to reduce target's Reflex Defense by 5.",
+    "id": 155
+  },
+  {
+    "name": "Improved Rapid Strike",
+    "prerequisite": "Rapid Strike",
+    "description": "Trade -5 penalty on attack roll for 2 dice of damage when using a Light Melee Weapon.",
+    "id": 156
+  },
+  {
+    "name": "Improved Sleight of Hand",
+    "prerequisite": "Dexterity 15, Skill Focus (Deception), Trained in Stealth",
+    "description": "Use Deception to aid your Stealth check to use Sleight of Hand; use Stealth to draw and palm a weapon simultaneously.",
+    "id": 157
+  },
+  {
+    "name": "Improvised Weapon Mastery",
+    "prerequisite": "Weapon Proficiency (Simple Weapons)",
+    "description": "Treat Improvised Weapons as Simple Weapons, deal 1d6 points of damage.",
+    "id": 158
+  },
+  {
+    "name": "Impulsive Flight",
+    "prerequisite": null,
+    "description": "Withdraw faster.",
+    "id": 159
+  },
+  {
+    "name": "Inborn Resilience",
+    "prerequisite": "Zabrak",
+    "description": "Reduce one Defense bonus but increase another.",
+    "id": 160
+  },
+  {
+    "name": "Increased Agility",
+    "prerequisite": "Conditioning",
+    "description": "Increase Climb Speed, Swim Speed, and Jump distance by 2 squares.",
+    "id": 161
+  },
+  {
+    "name": "Increased Resistance",
+    "prerequisite": "Gamorrean",
+    "description": "Gain a bonus to Fortitude Defense when an enemy fails to affect you.",
+    "id": 162
+  },
+  {
+    "name": "Indomitable Personality",
+    "prerequisite": "Charisma 13",
+    "description": "Add your Charisma bonus to your Will Defense as a Reaction.",
+    "id": 163
+  },
+  {
+    "name": "Informer",
+    "prerequisite": "Trained in Perception",
+    "description": "Gather Information with Perception skill, and do it faster.",
+    "id": 164
+  },
+  {
+    "name": "Instinctive Attack",
+    "prerequisite": "Non-Droid",
+    "description": "Spend a Force Point to reroll an attack and take the better result.",
+    "id": 165
+  },
+  {
+    "name": "Instinctive Defense",
+    "prerequisite": "Non-Droid",
+    "description": "Spend a Force Point to increase all Defenses by 2 for 1 round.",
+    "id": 166
+  },
+  {
+    "name": "Instinctive Perception",
+    "prerequisite": "Zabrak",
+    "description": "Gain a temporary Force Point when your Perception reroll is lower.",
+    "id": 167
+  },
+  {
+    "name": "Intimidator",
+    "prerequisite": "Trained in Persuasion",
+    "description": "When you successfully Intimidate, enemy takes -5 to Skill Checks and -2 to attack for one round.",
+    "id": 168
+  },
+  {
+    "name": "Ion Shielding",
+    "prerequisite": "Droid with Strength 13 or Cyborg Hybrid with Constitution 13",
+    "description": "Move only -1 step on Condition Track when Ion damage exceeds Damage Threshold.",
+    "id": 169
+  },
+  {
+    "name": "Jedi Familiarity",
+    "prerequisite": null,
+    "description": "Gain one temporary Force Point when targeted by an ally's Force Power or Force Talent.",
+    "id": 170
+  },
+  {
+    "name": "Jedi Heritage",
+    "prerequisite": "Twi'lek, Force Sensitivity",
+    "description": "Gain extra Force Powers when you take the Force Training Feat.",
+    "id": 171
+  },
+  {
+    "name": "Justice Seeker",
+    "prerequisite": "Kel Dor",
+    "description": "Gain a bonus to damage rolls against those who harm your allies.",
+    "id": 172
+  },
+  {
+    "name": "K'tara Training",
+    "prerequisite": "Martial Arts I, Trained in Stealth",
+    "description": "Deal extra damage against Flat-Footed enemy. Render target Mute.",
+    "id": 173
+  },
+  {
+    "name": "K'thri Training",
+    "prerequisite": "Dual Weapon Mastery I, Martial Arts I",
+    "description": "Make swift Unarmed attacks. Deal half damage on misses.",
+    "id": 174
+  },
+  {
+    "name": "Keen Scent",
+    "prerequisite": "Ewok",
+    "description": "Increase the range of your Scent ability by 20 squares.",
+    "id": 175
+  },
+  {
+    "name": "Knife Trick",
+    "prerequisite": "Lightning Draw, Quick Draw, Trained in Stealth",
+    "description": "Attack of Opportunity with concealed weapon to greater effect.",
+    "id": 176
+  },
+  {
+    "name": "Knock Heads",
+    "prerequisite": "Dexterity 13, Strength 13, Multi-Grab",
+    "description": "You may knock two opponents' heads together after a successful Multi-Grab.",
+    "id": 177
+  },
+  {
+    "name": "Lasting Influence",
+    "prerequisite": "Bothan",
+    "description": "After a successful Persuasion check, gain a bonus to future Persuasion checks.",
+    "id": 178
+  },
+  {
+    "name": "Leader of Droids",
+    "prerequisite": null,
+    "description": "Allied Droids benefit from your beneficial Mind-Affecting effects.",
+    "id": 179
+  },
+  {
+    "name": "Lightning Draw",
+    "prerequisite": "Quick Draw",
+    "description": "Draw and fire as a Standard Action.",
+    "id": 180
+  },
+  {
+    "name": "Linguist",
+    "prerequisite": "Intelligence 13",
+    "description": "Gain bonus Languages equal to 1  your Intelligence modifier (minimum 1).",
+    "id": 181
+  },
+  {
+    "name": "Logic Upgrade: Self-Defense",
+    "prerequisite": "Droid",
+    "description": "Grant yourself 2 to the Defense of your choice for 1 round.",
+    "id": 182
+  },
+  {
+    "name": "Logic Upgrade: Skill Swap",
+    "prerequisite": "Droid, Basic Processor",
+    "description": "Swap a Trained Skill for an Untrained Skill on the fly.",
+    "id": 183
+  },
+  {
+    "name": "Logic Upgrade: Tactician",
+    "prerequisite": "Droid, Base Attack Bonus 4",
+    "description": "Grant a 5 bonus to attack with a successful Aid Another attempt.",
+    "id": 184
+  },
+  {
+    "name": "Long Haft Strike",
+    "prerequisite": null,
+    "description": "You can wield a long-handled weapon as a Double Weapon.",
+    "id": 185
+  },
+  {
+    "name": "Mandalorian Training",
+    "prerequisite": "Charging Fire",
+    "description": "Gain a 2 bonus on attack rolls when using the Charging Fire feat.",
+    "id": 186
+  },
+  {
+    "name": "Maniacal Charge",
+    "prerequisite": null,
+    "description": "Intimidate your enemies when Charging, preventing adjacent characters from making Attacks of Opportunity and denying your target its Dexterity bonus.",
+    "id": 187
+  },
+  {
+    "name": "Martial Arts I",
+    "prerequisite": null,
+    "description": "Increases damage from Unarmed attacks by one die step; gain 1 bonus to Reflex Defense.",
+    "id": 188
+  },
+  {
+    "name": "Martial Arts II",
+    "prerequisite": "Martial Arts I, Base Attack Bonus 3",
+    "description": "Increases damage from Unarmed attacks by one die step; gain 1 bonus to Reflex Defense.",
+    "id": 189
+  },
+  {
+    "name": "Martial Arts III",
+    "prerequisite": "Martial Arts I, Martial Arts II, Base Attack Bonus 6",
+    "description": "Increases damage from Unarmed attacks by one die step; gain 1 bonus to Reflex Defense.",
+    "id": 190
+  },
+  {
+    "name": "Master of Disguise",
+    "prerequisite": "Trained in Deception, Charisma 13",
+    "description": "Gain 5 to creating a Deceptive Appearance or a Forged Document, and reduce the penalty for rushing.",
+    "id": 191
+  },
+  {
+    "name": "Master Tracker",
+    "prerequisite": "Rodian",
+    "description": "Increase the die type when adding Force Points to a Survival check.",
+    "id": 192
+  },
+  {
+    "name": "Meat Shield",
+    "prerequisite": "Point-Blank Shot, Precise Shot, Base Attack Bonus 4",
+    "description": "Gain Cover bonus equal to opponent's Cover bonus.",
+    "id": 193
+  },
+  {
+    "name": "Mechanical Martial Arts",
+    "prerequisite": "Droid, Martial Arts I, Base Attack Bonus 1",
+    "description": "Give an enemy a -5 penalty on attack and damage rolls for one round after striking it in Unarmed combat.",
+    "id": 194
+  },
+  {
+    "name": "Medical Team",
+    "prerequisite": "Trained in Treat Injury",
+    "description": "Gain bonuses on Treat Injury checks when near allies.",
+    "id": 195
+  },
+  {
+    "name": "Melee Defense",
+    "prerequisite": "Intelligence 13",
+    "description": "Trade attack bonus on melee attacks for a dodge bonus to Reflex Defense.",
+    "id": 196
+  },
+  {
+    "name": "Metamorph",
+    "prerequisite": "Constitution 13, Shapeshift Species Trait, Trained in Deception",
+    "description": "Change your size.",
+    "id": 197
+  },
+  {
+    "name": "Mighty Swing",
+    "prerequisite": "Strength 13",
+    "description": "Spend two Swift Actions to deal extra damage in melee.",
+    "id": 198
+  },
+  {
+    "name": "Mighty Throw",
+    "prerequisite": "Strength 13",
+    "description": "Add Strength bonus to ranged attack rolls.",
+    "id": 199
+  },
+  {
+    "name": "Mind of Reason",
+    "prerequisite": "Cerean",
+    "description": "Use Wisdom instead of Intelligence for Intelligence-based Skill Checks.",
+    "id": 200
+  },
+  {
+    "name": "Mission Specialist",
+    "prerequisite": null,
+    "description": "Grant bonus to allies' Untrained Skill Checks with a particular Skill.",
+    "id": 201
+  },
+  {
+    "name": "Mobility",
+    "prerequisite": "Dexterity 13, Dodge",
+    "description": "Gain 5 dodge bonus to Reflex Defense against some Attacks of Opportunity.",
+    "id": 202
+  },
+  {
+    "name": "Momentum Strike",
+    "prerequisite": "Trained in Pilot or Ride",
+    "description": "You know how to put the weight of your momentum into attacks while riding a Mount or Speeder Bike.",
+    "id": 203
+  },
+  {
+    "name": "Mon Calamari Shipwright",
+    "prerequisite": "Mon Calamari",
+    "description": "Reroute Power more quickly and without the risk of failure.",
+    "id": 204
+  },
+  {
+    "name": "Mounted Combat",
+    "prerequisite": "Trained in Ride",
+    "description": "Increase Speed and avoid attacks when riding a Mount.",
+    "id": 205
+  },
+  {
+    "name": "Mounted Defense",
+    "prerequisite": "Trained in Pilot or Ride",
+    "description": "You are able to react to incoming attacks, using you Mount or Speeder Bike to absorb attacks against you.",
+    "id": 206
+  },
+  {
+    "name": "Mounted Regiment",
+    "prerequisite": "Trained in Ride",
+    "description": "Gain bonuses on Ride checks when near allies.",
+    "id": 207
+  },
+  {
+    "name": "Moving Target",
+    "prerequisite": "Dodge",
+    "description": "Gain a bonus to Reflex Defense when you remain mobile.",
+    "id": 208
+  },
+  {
+    "name": "Multi-Grab",
+    "prerequisite": "Dexterity 13",
+    "description": "You may Grab two opponents as a Standard Action.",
+    "id": 209
+  },
+  {
+    "name": "Multi-Targeting",
+    "prerequisite": "Droid, Intelligence 13",
+    "description": "You can spread your Aim action across multiple consecutive rounds.",
+    "id": 210
+  },
+  {
+    "name": "Natural Leader",
+    "prerequisite": "Charisma 13",
+    "description": "You become the leader of an Organization.",
+    "id": 211
+  },
+  {
+    "name": "Nature Specialist",
+    "prerequisite": "Ithorian",
+    "description": "Increase the die type when adding Force Points to a Knowledge (Life Sciences) check.",
+    "id": 212
+  },
+  {
+    "name": "Never Surrender",
+    "prerequisite": "Trained in Endurance",
+    "description": "Make an Endurance check to prevent falling to 0 Hit Points.",
+    "id": 213
+  },
+  {
+    "name": "Nikto Survival",
+    "prerequisite": "Nikto",
+    "description": "Reroll Survival checks in native environment.",
+    "id": 214
+  },
+  {
+    "name": "Nimble Team",
+    "prerequisite": "Trained in Acrobatics",
+    "description": "Gain bonuses on Acrobatics checks when near allies.",
+    "id": 215
+  },
+  {
+    "name": "Officer Candidacy Training",
+    "prerequisite": null,
+    "description": "Gain a bonus to your Rank and Privilege Score.",
+    "id": 216
+  },
+  {
+    "name": "Opportunistic Retreat",
+    "prerequisite": "Combat Reflexes",
+    "description": "Sacrifice Attack of Opportunity to move at half speed.",
+    "id": 217
+  },
+  {
+    "name": "Opportunistic Shooter",
+    "prerequisite": null,
+    "description": "Gain a bonus to Attacks of Opportunity with ranged weapons.",
+    "id": 218
+  },
+  {
+    "name": "Opportunistic Trickery",
+    "prerequisite": "Combat Reflexes, Sneak Attack",
+    "description": "Sacrifice Attack of Opportunity to reduce target's Reflex Defense by 2.",
+    "id": 219
+  },
+  {
+    "name": "Overwhelming Attack",
+    "prerequisite": null,
+    "description": "Any attempt to negate your attack takes a -5 penalty on the attack roll or Skill Check.",
+    "id": 220
+  },
+  {
+    "name": "Pall of the Dark Side",
+    "prerequisite": "Dark Side Score 1",
+    "description": "Add half your Dark Side Score to Use the Force checks to resist detection.",
+    "id": 221
+  },
+  {
+    "name": "Perfect Intuition",
+    "prerequisite": "Cerean",
+    "description": "Reroll Initiative checks, always keeping the better result.",
+    "id": 222
+  },
+  {
+    "name": "Perfect Swimmer",
+    "prerequisite": "Gungan",
+    "description": "Reroll Swim checks, always keeping the better result.",
+    "id": 223
+  },
+  {
+    "name": "Pin",
+    "prerequisite": "Base Attack Bonus 1",
+    "description": "Grappled opponent is Pinned for one round, can't move, and and loses its Dexterity bonus to Reflex Defense.",
+    "id": 224
+  },
+  {
+    "name": "Pincer",
+    "prerequisite": "Droid with Claw or Hand Appendage, Base Attack Bonus 1, Pin, Crush",
+    "description": "Maintain Pin feat and make subsequent Grapple checks as a Swift Action, Apply Crush to each check.",
+    "id": 225
+  },
+  {
+    "name": "Pinpoint Accuracy",
+    "prerequisite": "Droid, Aiming Accuracy, Point-Blank Shot, Precise Shot",
+    "description": "Move target -1 step on the Condition Track when you hit with Aiming Accuracy.",
+    "id": 226
+  },
+  {
+    "name": "Pistoleer",
+    "prerequisite": "Weapon Proficiency (Pistols)",
+    "description": "Gain benefits when using certain Pistols.",
+    "id": 227
+  },
+  {
+    "name": "Pitiless Warrior",
+    "prerequisite": "Trandoshan",
+    "description": "Gain Bonus Hit Points whenever you take down a foe.",
+    "id": 228
+  },
+  {
+    "name": "Point-Blank Shot",
+    "prerequisite": null,
+    "description": "1 bonus on ranged attacks and damage against foes within Point-Blank Range.",
+    "id": 229
+  },
+  {
+    "name": "Poison Resistance",
+    "prerequisite": "Constitution 13",
+    "description": "You are inherently more resistant to Poison.",
+    "id": 230
+  },
+  {
+    "name": "Power Attack",
+    "prerequisite": "Strength 13",
+    "description": "Trade attack bonus for damage on melee attacks (up to your Base Attack Bonus).",
+    "id": 231
+  },
+  {
+    "name": "Power Blast",
+    "prerequisite": "Dexterity 13",
+    "description": "Trade attack bonus for damage on ranged attacks (up to your Base Attack Bonus).",
+    "id": 232
+  },
+  {
+    "name": "Powerful Charge",
+    "prerequisite": "Medium or larger sized, Base Attack Bonus 1",
+    "description": "Gain 2 bonus on your attack roll while Charging, and deal extra damage.",
+    "id": 233
+  },
+  {
+    "name": "Powerful Rage",
+    "prerequisite": "Rage Species Trait",
+    "description": "Gain a 4 bonus on Strength checks and Strength-based Skill Checks.",
+    "id": 234
+  },
+  {
+    "name": "Precise Shot",
+    "prerequisite": "Point-Blank Shot",
+    "description": "No -5 penalty for shooting into melee.",
+    "id": 235
+  },
+  {
+    "name": "Predictive Defense",
+    "prerequisite": "Intelligence 13",
+    "description": "Use Dexterity or Intelligence to determine Reflex Defense.",
+    "id": 236
+  },
+  {
+    "name": "Prime Shot",
+    "prerequisite": "Point-Blank Shot",
+    "description": "Gain a bonus to attack rolls when closer to your target than your allies.",
+    "id": 237
+  },
+  {
+    "name": "Primitive Warrior",
+    "prerequisite": "Gamorrean",
+    "description": "Deal 1 die of damage with Simple Weapons (Melee).",
+    "id": 238
+  },
+  {
+    "name": "Quick Comeback",
+    "prerequisite": "Gamorrean",
+    "description": "Recover quickly after being moved down the Condition Track by damage.",
+    "id": 239
+  },
+  {
+    "name": "Quick Draw",
+    "prerequisite": "Base Attack Bonus 1",
+    "description": "Draw weapon as a Swift Action.",
+    "id": 240
+  },
+  {
+    "name": "Quick Skill",
+    "prerequisite": null,
+    "description": "Take 10 on Skill Checks when rushed, Take 20 in half of the normal time.",
+    "id": 241
+  },
+  {
+    "name": "Rancor Crush",
+    "prerequisite": "Strength 15, Crush, Pin, Base Attack Bonus 1",
+    "description": "Move an enemy -1 step down the Condition Track when using the Crush feat.",
+    "id": 242
+  },
+  {
+    "name": "Rapid Assault",
+    "prerequisite": "Double Attack or Dual Weapon Mastery I, Base Attack Bonus 6",
+    "description": "Through focus and raw determination, you can make multiple attacks even after moving.",
+    "id": 243
+  },
+  {
+    "name": "Rapid Reaction",
+    "prerequisite": null,
+    "description": "React twice to the same trigger once per encounter.",
+    "id": 244
+  },
+  {
+    "name": "Rapid Shot",
+    "prerequisite": "Base Attack Bonus 1",
+    "description": "Take a -2 penalty on a ranged attack roll to deal 1 die of damage.",
+    "id": 245
+  },
+  {
+    "name": "Rapid Strike",
+    "prerequisite": "Base Attack Bonus 1",
+    "description": "Take a -2 penalty on a melee attack roll to deal 1 die of damage.",
+    "id": 246
+  },
+  {
+    "name": "Rapport",
+    "prerequisite": "Wisdom 13",
+    "description": "Grant an additional 2 bonus when using the Aid Another action.",
+    "id": 247
+  },
+  {
+    "name": "Read the Winds",
+    "prerequisite": "Kel Dor",
+    "description": "Detect hidden enemies within 10 squares of you.",
+    "id": 248
+  },
+  {
+    "name": "Rebel Military Training",
+    "prerequisite": "Running Attack",
+    "description": "Gain a dodge bonus to Reflex Defense when using Running Attack.",
+    "id": 249
+  },
+  {
+    "name": "Recall",
+    "prerequisite": "Trained in Knowledge (Any)",
+    "description": "Reroll Knowledge skill check, keeping the better result.",
+    "id": 250
+  },
+  {
+    "name": "Recovering Surge",
+    "prerequisite": null,
+    "description": "Move up the Condition Track when you catch a Second Wind.",
+    "id": 251
+  },
+  {
+    "name": "Recurring Success",
+    "prerequisite": null,
+    "description": "Gain extra use of a 1/encounter Talent or Feat.",
+    "id": 252
+  },
+  {
+    "name": "Regenerative Healing",
+    "prerequisite": "Trandoshan",
+    "description": "Regain more Hit Points (But more slowly) when you catch a Second Wind.",
+    "id": 253
+  },
+  {
+    "name": "Relentless Attack",
+    "prerequisite": "Double Attack (Chosen Weapon)",
+    "description": "Gain a bonus on attack rolls after missing a target.",
+    "id": 254
+  },
+  {
+    "name": "Republic Military Training",
+    "prerequisite": null,
+    "description": "When behind Cover, you can reduce the damage of an incoming attack.",
+    "id": 255
+  },
+  {
+    "name": "Resilient Strength",
+    "prerequisite": "Strength 13",
+    "description": "Use Strength or Constitution to determine Fortitude Defense.",
+    "id": 256
+  },
+  {
+    "name": "Resolute Stance",
+    "prerequisite": "Base Attack Bonus 1",
+    "description": "Gain 2 or 5 to Will Defense when you Fight Defensively.",
+    "id": 257
+  },
+  {
+    "name": "Resurgence",
+    "prerequisite": "Trained in Endurance",
+    "description": "Gain bonus Move Action when you catch your Second Wind.",
+    "id": 258
+  },
+  {
+    "name": "Resurgent Vitality",
+    "prerequisite": "Wookiee",
+    "description": "Gain additional Hit Points when catching a Second Wind.",
+    "id": 259
+  },
+  {
+    "name": "Return Fire",
+    "prerequisite": "Dexterity 15, Quick Draw, Weapon Focus (Chosen Weapon)",
+    "description": "You may make a single ranged attack as a Reaction to a ranged attack against you that misses.",
+    "id": 260
+  },
+  {
+    "name": "Returning Bug",
+    "prerequisite": "Weapon Proficiency (Simple Weapons)",
+    "description": "Thrown Razor Bugs and Thud Bugs return to your hand immediately.",
+    "id": 261
+  },
+  {
+    "name": "Riflemaster",
+    "prerequisite": "Weapon Proficiency (Rifles)",
+    "description": "Gain benefits when using certain Rifles.",
+    "id": 262
+  },
+  {
+    "name": "Risk Taker",
+    "prerequisite": "Trained in Climb or Jump",
+    "description": "Improve your chances of success with Climb or Jump checks.",
+    "id": 263
+  },
+  {
+    "name": "Running Attack",
+    "prerequisite": "Dexterity 13",
+    "description": "Move before and after making an attack.",
+    "id": 264
+  },
+  {
+    "name": "Sadistic Strike",
+    "prerequisite": null,
+    "description": "Move opponents -1 step on the Condition Track when you deliver a Coup de Grace.",
+    "id": 265
+  },
+  {
+    "name": "Savage Attack",
+    "prerequisite": "Double Attack (Chosen Weapon)",
+    "description": "Add 1 die of damage when successful on a Full Attack.",
+    "id": 266
+  },
+  {
+    "name": "Scavenger",
+    "prerequisite": null,
+    "description": "Gather materials for building objects.",
+    "id": 267
+  },
+  {
+    "name": "Scion of Dorin",
+    "prerequisite": "Kel Dor",
+    "description": "Gain a bonus to Fortitude Defense against Atmospheric Hazards.",
+    "id": 268
+  },
+  {
+    "name": "Sensor Link",
+    "prerequisite": "Droid or Cyborg Hybrid",
+    "description": "Share sensor data instantly with an ally.",
+    "id": 269
+  },
+  {
+    "name": "Separatist Military Training",
+    "prerequisite": null,
+    "description": "Gain a 1 bonus on an attack roll while adjacent to an ally.",
+    "id": 270
+  },
+  {
+    "name": "Shake It Off",
+    "prerequisite": "Constitution 13, Trained in Endurance",
+    "description": "Spend two Swift Actions to move 1 step along the Condition Track.",
+    "id": 271
+  },
+  {
+    "name": "Sharp Senses",
+    "prerequisite": "Mon Calamari",
+    "description": "Increase the die type when adding Force Points to a Perception check.",
+    "id": 272
+  },
+  {
+    "name": "Shield Surge",
+    "prerequisite": "Droid or Cyborg Hybrid, Trained in Mechanics",
+    "description": "Trade Vehicle's Shield Rating for damage taken.",
+    "id": 273
+  },
+  {
+    "name": "Shrewd Bargainer",
+    "prerequisite": "Quarren",
+    "description": "Suppress opponents' insight and morale bonuses to Will Defense.",
+    "id": 274
+  },
+  {
+    "name": "Signature Device",
+    "prerequisite": "Tech Specialist",
+    "description": "Install two Traits.",
+    "id": 275
+  },
+  {
+    "name": "Silver Tongue",
+    "prerequisite": "Trained in Persuasion",
+    "description": "Intimidate a creature or change its Attitude as a Standard Action.",
+    "id": 276
+  },
+  {
+    "name": "Sith Military Training",
+    "prerequisite": null,
+    "description": "Upon debilitating an opponent, you can cause other opponents to lose heart.",
+    "id": 277
+  },
+  {
+    "name": "Skill Challenge: Catastrophic Avoidance",
+    "prerequisite": null,
+    "description": "Catastrophic Failures in a Skill Challenge occur less frequently, and with milder results.",
+    "id": 278
+  },
+  {
+    "name": "Skill Challenge: Last Resort",
+    "prerequisite": null,
+    "description": "Reroll a third failed Skill Check during a Skill Challenge, keeping the better result.",
+    "id": 279
+  },
+  {
+    "name": "Skill Challenge: Recovery",
+    "prerequisite": null,
+    "description": "Treat a Skill Challenge as if it had the Recovery effect.",
+    "id": 280
+  },
+  {
+    "name": "Skill Focus",
+    "prerequisite": null,
+    "description": "Gain 5 competence bonus on Skill Checks with one Trained Skill.",
+    "id": 281
+  },
+  {
+    "name": "Skill Training",
+    "prerequisite": null,
+    "description": "You become Trained in one Class Skill.",
+    "id": 282
+  },
+  {
+    "name": "Slammer",
+    "prerequisite": "Small or larger Droid with 2 Appendages, Strength 13",
+    "description": "Double Strength bonus to damage rolls on this special melee attack.",
+    "id": 283
+  },
+  {
+    "name": "Slicer Team",
+    "prerequisite": "Trained in Use Computer",
+    "description": "Gain bonuses on Use Computer checks when near allies.",
+    "id": 284
+  },
+  {
+    "name": "Slippery Maneuver",
+    "prerequisite": "Dodge",
+    "description": "Dodge two targets, Withdraw at full Speed.",
+    "id": 285
+  },
+  {
+    "name": "Sniper",
+    "prerequisite": "Point-Blank Shot, Precise Shot, Base Attack Bonus 4",
+    "description": "You ignore Soft Cover when making a ranged attack.",
+    "id": 286
+  },
+  {
+    "name": "Sniper Shot",
+    "prerequisite": null,
+    "description": "Increase accuracy at a -5 Reflex Defense penalty.",
+    "id": 287
+  },
+  {
+    "name": "Spacer's Surge",
+    "prerequisite": "Duros",
+    "description": "Gain a temporary Force Point when you roll a Natural 20 on a Pilot check.",
+    "id": 288
+  },
+  {
+    "name": "Sport Hunter",
+    "prerequisite": "Weapon Proficiency (Pistols) or Weapon Proficiency (Rifles)",
+    "description": "Gain benefits with certain slugthrowers and sporting weapons.",
+    "id": 289
+  },
+  {
+    "name": "Spray Shot",
+    "prerequisite": null,
+    "description": "When using a weapon set on Autofire, you can reduce the area to 1 square.",
+    "id": 290
+  },
+  {
+    "name": "Staggering Attack (GaW)",
+    "prerequisite": "Base Attack Bonus 1",
+    "description": "Impose penalties to enemy Skill Checks with a successful attack.",
+    "id": 291
+  },
+  {
+    "name": "Staggering Attack",
+    "prerequisite": "Sneak Attack or Rapid Shot or Rapid Strike",
+    "description": "Forgo extra damage to push back opponent.",
+    "id": 292
+  },
+  {
+    "name": "Stand Tall",
+    "prerequisite": null,
+    "description": "When you take damage, nearby allies attack your attacker.",
+    "id": 293
+  },
+  {
+    "name": "Starship Designer",
+    "prerequisite": "Tech Specialist, Trained in Mechanics",
+    "description": "You are trained to design (and redesign) Starships.",
+    "id": 294
+  },
+  {
+    "name": "Starship Tactics",
+    "prerequisite": "Vehicular Combat, Trained in Pilot",
+    "description": "You are trained to make use of Starship Maneuvers and are skilled at space combat.",
+    "id": 295
+  },
+  {
+    "name": "Stava Training",
+    "prerequisite": "Martial Arts I, Running Attack",
+    "description": "Grab and Grapple as a larger creature. Grab after Charging.",
+    "id": 296
+  },
+  {
+    "name": "Stay Up",
+    "prerequisite": "Trained in Endurance",
+    "description": "Move 1 step down Condition Track to reduce damage.",
+    "id": 297
+  },
+  {
+    "name": "Steadying Position",
+    "prerequisite": "Careful Shot",
+    "description": "Deny target's Dexterity bonus to Reflex Defense when you are Prone and Aiming.",
+    "id": 298
+  },
+  {
+    "name": "Strafe",
+    "prerequisite": "Base Attack Bonus 1",
+    "description": "Attack multiple targets as you move past them.",
+    "id": 299
+  },
+  {
+    "name": "Strong Bellow",
+    "prerequisite": "Ithorian",
+    "description": "Use your Bellow ability without moving down the Condition Track.",
+    "id": 300
+  },
+  {
+    "name": "Strong in the Force",
+    "prerequisite": null,
+    "description": "Roll d8s instead of d6s when you spend a Force Point.",
+    "id": 301
+  },
+  {
+    "name": "Superior Tech",
+    "prerequisite": "Intelligence 17, Tech Specialist, 9th level",
+    "description": "Install superior equipment upgrades.",
+    "id": 302
+  },
+  {
+    "name": "Suppression Fire",
+    "prerequisite": "Strength 13, Burst Fire, Weapon Proficiency (Heavy Weapons)",
+    "description": "You can lay down a hail of blaster fire to pin your opponents.",
+    "id": 303
+  },
+  {
+    "name": "Sure Climber",
+    "prerequisite": "Sullustan",
+    "description": "Gain a Climb Speed of 4 squares.",
+    "id": 304
+  },
+  {
+    "name": "Surgical Expertise",
+    "prerequisite": "Trained in Treat Injury",
+    "description": "You can perform Surgery in 10 minutes instead of 1 hour.",
+    "id": 305
+  },
+  {
+    "name": "Survivor of Ryloth",
+    "prerequisite": "Twi'lek",
+    "description": "Make Survival checks to resist Extreme Heat and Extreme Cold.",
+    "id": 306
+  },
+  {
+    "name": "Swarm",
+    "prerequisite": "Coordinated Attack",
+    "description": "Gain 1 bonus on melee attack rolls when allies are adjacent.",
+    "id": 307
+  },
+  {
+    "name": "Tactical Advantage",
+    "prerequisite": "Combat Reflexes",
+    "description": "Make Attack of Opportunity and move 1 square.",
+    "id": 308
+  },
+  {
+    "name": "Tactical Genius",
+    "prerequisite": "Starship Tactics, Vehicular Combat, Trained in Pilot",
+    "description": "You are a master at using multiple starship tactics over the course of long space combats.",
+    "id": 309
+  },
+  {
+    "name": "Tae-Jitsu Training",
+    "prerequisite": "Dodge, Martial Arts I, Trained in Initiative",
+    "description": "Deal more damage on critical hits. Use Dodge against enemies.",
+    "id": 310
+  },
+  {
+    "name": "Targeted Area",
+    "prerequisite": "Base Attack Bonus 5",
+    "description": "Deal an additional 5 points of damage against one target within a successful Area Attack.",
+    "id": 311
+  },
+  {
+    "name": "Tech Specialist",
+    "prerequisite": "Trained in Mechanics",
+    "description": "You can make custom modifications to Armor, Weapons, Vehicles, Droids, and Devices.",
+    "id": 312
+  },
+  {
+    "name": "Technical Experts",
+    "prerequisite": "Trained in Mechanics",
+    "description": "Gain bonuses on Mechanics checks when near allies.",
+    "id": 313
+  },
+  {
+    "name": "Teräs Käsi Training",
+    "prerequisite": "Strength 13, Martial Arts I",
+    "description": "Treat target's Damage Threshold as lower.",
+    "id": 314
+  },
+  {
+    "name": "Thick Skin",
+    "prerequisite": "Trandoshan",
+    "description": "Gain a 2 Species bonus to your Fortitude Defense.",
+    "id": 315
+  },
+  {
+    "name": "Throw",
+    "prerequisite": "Trip, Base Attack Bonus 1",
+    "description": "Throw a Grappled opponent up to 1 square beyond your reach and deal damage.",
+    "id": 316
+  },
+  {
+    "name": "Tireless Squad",
+    "prerequisite": "Trained in Endurance",
+    "description": "Gain bonuses on Endurance checks when near allies.",
+    "id": 317
+  },
+  {
+    "name": "Tool Frenzy",
+    "prerequisite": "Small or larger Droid with 2 Tool Appendages",
+    "description": "Gain 2 to attack rolls and damage rolls with nonweapon Appendages in exchange for a -2 penalty to Reflex Defense.",
+    "id": 318
+  },
+  {
+    "name": "Toughness",
+    "prerequisite": null,
+    "description": "Gain 1 Hit Point per Character Level.",
+    "id": 319
+  },
+  {
+    "name": "Trample",
+    "prerequisite": "Trained in Ride",
+    "description": "When using the Mounted Charge Action, attack enemies between you and your target.",
+    "id": 320
+  },
+  {
+    "name": "Trench Warrior",
+    "prerequisite": null,
+    "description": "When you have Cover against an enemy's ranged attacks, gain a 1 bonus on attack rolls against that enemy.",
+    "id": 321
+  },
+  {
+    "name": "Trip",
+    "prerequisite": "Base Attack Bonus 1",
+    "description": "Trip an opponent that you've Grappled, knocking it Prone.",
+    "id": 322
+  },
+  {
+    "name": "Triple Attack",
+    "prerequisite": "Base Attack Bonus 11, Double Attack (Chosen Weapon)",
+    "description": "Make second extra attack with chosen weapon during Full Attack, additional -5 penalty to all attacks.",
+    "id": 323
+  },
+  {
+    "name": "Triple Crit",
+    "prerequisite": "Base Attack Bonus 8",
+    "description": "Deal triple damage on a Critical Hit.",
+    "id": 324
+  },
+  {
+    "name": "Tumble Defense",
+    "prerequisite": null,
+    "description": "Your martial ability makes it harder for opponents to Tumble past.",
+    "id": 325
+  },
+  {
+    "name": "Turn and Burn",
+    "prerequisite": "Droid with Hovering, Flying, Wheeled, or Tracked Locomotion; Dexterity 13",
+    "description": "Withdraw by clearing threatened squares in up to 2 squares of movement, move your Speed when using the Withdraw Action, Withdraw as a Reaction by spending a Force Point.",
+    "id": 326
+  },
+  {
+    "name": "Unhindered Approach",
+    "prerequisite": "Trained in Jump",
+    "description": "Gain bonuses on Jump checks checks when near allies.",
+    "id": 327
+  },
+  {
+    "name": "Unified Squadron",
+    "prerequisite": "Trained in Pilot",
+    "description": "Gain bonuses on Pilot checks checks when near allies.",
+    "id": 328
+  },
+  {
+    "name": "Unleashed",
+    "prerequisite": "Have a Destiny, Gamemaster's Approval",
+    "description": "Unlocks Unleashed Abilities.",
+    "id": 329
+  },
+  {
+    "name": "Unstoppable Combatant",
+    "prerequisite": "Extra Second Wind",
+    "description": "Catch more than one Second Wind in an encounter.",
+    "id": 330
+  },
+  {
+    "name": "Unstoppable Force",
+    "prerequisite": null,
+    "description": "Gain a 5 bonus to Fortitude Defense and Will Defense against any effect requiring a Use the Force check.",
+    "id": 331
+  },
+  {
+    "name": "Unswerving Resolve",
+    "prerequisite": "Base Attack Bonus 2",
+    "description": "Whenever you resist a Fear or Mind-Affecting effect, you gain a temporary Force Point.",
+    "id": 332
+  },
+  {
+    "name": "Unwavering Focus",
+    "prerequisite": "Zabrak",
+    "description": "Impose a penalty to Skill Checks for Mind-Affecting effects that target you.",
+    "id": 333
+  },
+  {
+    "name": "Unwavering Resolve",
+    "prerequisite": "Trained in Perception",
+    "description": "Gain a 5 bonus to Will Defense against Deception and Persuasion checks.",
+    "id": 334
+  },
+  {
+    "name": "Vehicle Systems Expertise",
+    "prerequisite": "Tech Specialist, Trained in Mechanics",
+    "description": "Recharge Shields or Reroute Power on a Vehicle faster than normal.",
+    "id": 335
+  },
+  {
+    "name": "Vehicular Combat",
+    "prerequisite": "Trained in Pilot",
+    "description": "Negate one attack per round against the Vehicle you're piloting.",
+    "id": 336
+  },
+  {
+    "name": "Vehicular Surge",
+    "prerequisite": "Trained in Pilot",
+    "description": "Once per day, gain Bonus Hit Points for a Vehicle you Pilot.",
+    "id": 337
+  },
+  {
+    "name": "Veteran Spacer",
+    "prerequisite": "Duros",
+    "description": "Gain a bonus to Use Computer checks made to Astrogate.",
+    "id": 338
+  },
+  {
+    "name": "Vitality Surge",
+    "prerequisite": "Extra Second Wind",
+    "description": "Catch a Second Wind even when not at or below half Hit Points.",
+    "id": 339
+  },
+  {
+    "name": "Warrior Heritage",
+    "prerequisite": "Gungan",
+    "description": "Gain a bonus to Will Defense when using an Atlatl or Cesta.",
+    "id": 340
+  },
+  {
+    "name": "Wary Defender",
+    "prerequisite": null,
+    "description": "Gain a 2 bonus to Fortitude Defense and Will Defense while Fighting Defensively.",
+    "id": 341
+  },
+  {
+    "name": "Wary Sentries",
+    "prerequisite": "Trained in Perception",
+    "description": "Gain bonuses on Perception checks when near allies.",
+    "id": 342
+  },
+  {
+    "name": "Weapon Finesse",
+    "prerequisite": "Base Attack Bonus 1",
+    "description": "Use Dexterity modifier instead of Strength modifier on attack rolls with Light Melee Weapons and Lightsabers.",
+    "id": 343
+  },
+  {
+    "name": "Weapon Focus",
+    "prerequisite": "Proficient with Chosen Weapon",
+    "description": "1 bonus on attack rolls with chosen weapon.",
+    "id": 344
+  },
+  {
+    "name": "Weapon Proficiency (Lightsabers)",
+    "prerequisite": null,
+    "description": "Ignore -5 penalty on attack rolls with lightsabers.",
+    "id": 345
+  },
+  {
+    "name": "Weapon Proficiency (Pistols)",
+    "prerequisite": null,
+    "description": "Ignore -5 penalty on attack rolls with pistols.",
+    "id": 346
+  },
+  {
+    "name": "Weapon Proficiency (Rifles)",
+    "prerequisite": null,
+    "description": "Ignore -5 penalty on attack rolls with rifles.",
+    "id": 347
+  },
+  {
+    "name": "Weapon Proficiency (Simple Weapons)",
+    "prerequisite": null,
+    "description": "Ignore -5 penalty on attack rolls with simple weapons.",
+    "id": 348
+  },
+  {
+    "name": "Whirlwind Attack",
+    "prerequisite": "Dexterity 13, Intelligence 13, Melee Defense, Base Attack Bonus 4",
+    "description": "Make one melee attack against each opponent within reach.",
+    "id": 349
+  },
+  {
+    "name": "Wicked Strike",
+    "prerequisite": "Rapid Strike",
+    "description": "Gain extra attack on a second target upon damaging the first target.",
+    "id": 350
+  },
+  {
+    "name": "Wilderness First Aid",
+    "prerequisite": "Trained in Survival",
+    "description": "Use basic Survival skills as if you have a Medpac for Treat Injury checks.",
+    "id": 351
+  },
+  {
+    "name": "Wilderness Specialists",
+    "prerequisite": "Trained in Survival",
+    "description": "Gain bonuses on Survival checks when near allies.",
+    "id": 352
+  },
+  {
+    "name": "Withdrawal Strike",
+    "prerequisite": "Base Attack Bonus 5",
+    "description": "Adjacent opponents can not use the Withdraw Action.",
+    "id": 353
+  },
+  {
+    "name": "Wookiee Grip",
+    "prerequisite": "Strength 13",
+    "description": "Wield two-handed weapons in a single hand.",
+    "id": 354
+  },
+  {
+    "name": "Wroshyr Rage",
+    "prerequisite": "Wookiee",
+    "description": "Gain Bonus Hit Points when Raging.",
+    "id": 355
+  },
+  {
+    "name": "Wrruushi Training",
+    "prerequisite": "Constitution 13, Martial Arts I, Wookiee",
+    "description": "Gain bonus hit points on Unarmed attacks. Deny target Equipment bonus.",
+    "id": 356
+  },
+  {
+    "name": "Zero Range",
+    "prerequisite": "Point-Blank Shot",
+    "description": "Gain a 1 bonus on your attack roll and deal 1 die of damage when making a ranged attack against an adjacent target or a target in your Fighting Space.",
+    "id": 357
+  }
+]
